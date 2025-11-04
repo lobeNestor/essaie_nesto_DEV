@@ -1,57 +1,101 @@
 <!DOCTYPE html>
+
 <html lang="fr">
- 
-        <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil de Djerareoutar Nestor</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <img src="upload/nesto.jpg" alt="Photo de Nestor">
-        <h1>Djerareoutar Nestor</h1>
-        <p><em>Stagiaire au Ministère des Finances, du Budget et des Comptes Publics - N'Djamena / Tchad</em></p>
+<div class="container">
+    <img src="upload/nesto.jpg" alt="Photo de Nestor">
+    <h1>Djerareoutar Nestor</h1>
+    <p><em>Stagiaire au Centre Informatique du Ministère des Finances, du Budget et des Comptes Publics - N'Djamena / Tchad</em></p>
 
-        <div class="domain">
-            <h2>🌐 Domaine professionnel</h2>
-            <p>Développeur Web spécialisé en PHP & JavaScript</p>
-            <p>Création d’applications dynamiques, gestion de base de données MySQL, interactions front-end & back-end.</p>
-        </div>
+```
+<div class="theme-buttons">
+    <button onclick="changeTheme('light')">Clair</button>
+    <button onclick="changeTheme('dark')">Ombre</button>
+    <button onclick="changeTheme('blue')">Bleu</button>
+    <button onclick="changeTheme('red')">Rouge</button>
+    <button onclick="changeTheme('green')">Vert</button>
+</div>
 
-        <div class="contact">
-            <p>📧 djdjerareoutardjnestor@gmail.com</p>
-            <p>📞 62698566 / 95762786</p>
-        </div>
+<div class="domain">
+    <h2>🌐 Domaine professionnel</h2>
+    <p>Développeur Web spécialisé en PHP, Java et JavaScript</p>
+    <p>Création d’applications dynamiques, gestion de base de données MySQL, interactions front-end & back-end.</p>
+</div>
 
-        <div class="github">
-            <a href=https://github.com/login target="_blank">Voir mon GitHub</a>
-        </div>
+<div class="contact">
+    <p>📧 djdjerareoutardjnestor@gmail.com</p>
+    <p>📞 62698566 / 95762786</p>
+</div>
 
-        <!-- Contenu caché -->
-        <div id="moreInfo">
-            <p>💡 Je suis passionné par le développement web, la conception UX/UI, et l’automatisation de tâches avec PHP. 
-            J’aime créer des outils pour améliorer l’expérience utilisateur et booster la productivité. 
-            Mon objectif est d’apporter des solutions utiles et évolutives.</p>
-        </div>
+<div class="github">
+    <a href="https://github.com/login" target="_blank">Voir mon GitHub</a>
+</div>
 
-        <!-- Bouton Voir plus / Voir moins -->
-        <button onclick="toggleMore()" id="toggleButton">Voir plus ⬇️</button>
+<p><a class="cv-link" href="#" onclick="openCVModal()">Aperçu de mon CV</a></p>
+
+<h2>📚 Cours en ligne</h2>
+<p><a class="course-link" href="#" onclick="openCourseModal('PHP')">Cours PHP</a></p>
+<p><a class="course-link" href="#" onclick="openCourseModal('Java')">Cours Java</a></p>
+<p><a class="course-link" href="#" onclick="openCourseModal('JavaScript')">Cours JavaScript</a></p>
+```
+
+</div>
+
+<!-- Modal CV -->
+
+<div id="cvModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCVModal()">&times;</span>
+        <iframe src="cv.html" width="100%" height="600px"></iframe>
     </div>
+</div>
 
-    <script>
-        function toggleMore() {
-            const moreInfo = document.getElementById("moreInfo");
-            const button = document.getElementById("toggleButton");
+<!-- Modal Cours -->
 
-            if (moreInfo.style.display === "none") {
-                moreInfo.style.display = "block";
-                button.textContent = "Voir moins ⬆️";
-            } else {
-                moreInfo.style.display = "none";
-                button.textContent = "Voir plus ⬇️";
-            }
-        }
-    </script>
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCourseModal()">&times;</span>
+        <p id="courseMessage" style="font-size: 18px; text-align:center; margin-top: 20px;"></p>
+    </div>
+</div>
+
+<script>
+function changeTheme(theme) {
+    switch(theme) {
+        case 'light': document.body.style.background = '#f5f5f5'; document.body.style.color = '#333'; break;
+        case 'dark': document.body.style.background = '#2c2c2c'; document.body.style.color = '#f5f5f5'; break;
+        case 'blue': document.body.style.background = '#cce0ff'; document.body.style.color = '#003366'; break;
+        case 'red': document.body.style.background = '#ffcce0'; document.body.style.color = '#660000'; break;
+        case 'green': document.body.style.background = '#ccffcc'; document.body.style.color = '#003300'; break;
+        default: document.body.style.background = '#fff'; document.body.style.color = '#333';
+    }
+}
+
+// CV Modal
+function openCVModal() { document.getElementById('cvModal').style.display = 'block'; }
+function closeCVModal() { document.getElementById('cvModal').style.display = 'none'; }
+
+// Cours Modal
+function openCourseModal(cours) {
+    document.getElementById('courseMessage').innerText = "Le cours " + cours + " n'est pas disponible jusqu'à ordre de l'admin.";
+    document.getElementById('courseModal').style.display = 'block';
+}
+function closeCourseModal() { document.getElementById('courseModal').style.display = 'none'; }
+
+// Close modal on outside click
+window.onclick = function(event) {
+    const cvModal = document.getElementById('cvModal');
+    const courseModal = document.getElementById('courseModal');
+    if (event.target === cvModal) { cvModal.style.display = 'none'; }
+    if (event.target === courseModal) { courseModal.style.display = 'none'; }
+}
+</script>
+
 </body>
 </html>
-
