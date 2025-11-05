@@ -8,7 +8,7 @@ Ce repository contient mon profil et mon CV, avec des liens interactifs et un st
 * `profil.html` : Page de profil avec informations personnelles, domaine professionnel, cours en ligne et modal CV.
 * `cv.html` : Mon CV complet avec parcours académique, expériences, compétences et centres d’intérêt.
 * `style.css` : Fichier CSS commun pour styliser le profil et le CV.
-* `upload/nesto.jpg` : Image de profil utilisée sur les pages.
+* `upload/Imagedeveloper.png` : Image de profil utilisée sur les pages.
 
 ## Fonctionnalités
 
