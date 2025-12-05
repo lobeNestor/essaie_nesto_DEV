@@ -1,74 +1,102 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV de Djerareoutar Nestor</title>
-<link rel="stylesheet" href="style.css">
+<title>CV Moderne - Djerareoutar Nestor</title>
+<link rel="stylesheet" href="modern_cv.css">
 </head>
 <body>
-<div class="cv-container">
-    <img src="upload/imageCV.jpg" alt="Photo de Nestor">
-    <h1>Djerareoutar Nestor</h1>
-    <p><em>Stagiaire au Ministère des Finances et Centre Informatique - N'Djamena / Tchad</em></p>
+<div class="cv-wrapper">
+    <aside class="sidebar">
+        <img src="upload/imageCV.jpg" class="photo" alt="Photo de Nestor">
+        <h2 class="name">Djerareoutar Nestor</h2>
+        <p class="role">Stagiaire au Ministère des Finances</p>
 
-```
-<h2 class="section-title">Informations personnelles</h2>
-<ul>
-    <li>Adresse : 99344 N’Djamena, TCHAD</li>
-    <li>Portable : 62698566</li>
-    <li>Email : djdjerareoutardjnestor@gmail.com</li>
-    <li>Né le : 02/07/1997 à N’Djamena</li>
-    <li>Nationalité : Tchadienne</li>
-    <li>Diplôme : Ingénieur De Travaux en Informatiques Appliquée</li>
-</ul>
+        <h3>Contacts</h3>
+        <ul>
+            <li>📞 62698566</li>
+            <li>📧 djdjerareoutardjnestor@gmail.com</li>
+            <li>📍 N’Djamena, Tchad</li>
+        </ul>
 
-<h2 class="section-title">Expérience Professionnelle</h2>
-<ul>
-    <li>Résolution des Problèmes Techniques pour les Utilisateurs</li>
-</ul>
+        <h3>Langues</h3>
+        <ul>
+            <li>Français</li>
+            <li>Anglais (moyen)</li>
+            <li>Arabe local</li>
+        </ul>
 
-<h2 class="section-title">Etudes et Diplômes</h2>
-<ul>
-    <li>2005-2011 : Primaires</li>
-    <li>2011-2015 : Collège</li>
-    <li>2015-2018 : Secondaires et Baccalauréat série D</li>
-    <li>2018-2019 : Entrée à la faculté des Sciences Exactes et Appliquées de N’Djamena</li>
-    <li>2018-2022 : Licence en Math-Appliquées</li>
-</ul>
+        <h3>Centres d’intérêt</h3>
+        <ul>
+            <li>Musique</li>
+            <li>Sport</li>
+            <li>Lecture</li>
+            <li>Balade</li>
+        </ul>
+    </aside>
 
-<h2 class="section-title">Stage Académique</h2>
-<ul>
-    <li>Université Virtuelle : conception d’une application Web (Gestion des Stagiaires) avec PHP, HTML, JS, CSS, VS Code, XAMPP</li>
-    <li>Ministère Des Finances : Stage DSI, Réseaux, Maintenance, Installation systèmes et logiciels, perfectionnement depuis 1er février</li>
-</ul>
+    <main class="content">
+        <section>
+            <h2>Profil</h2>
+            <p>Ingénieur de Travaux en Informatique Appliquée avec expérience en développement web, maintenance systèmes, réseaux et support utilisateurs.</p>
+        </section>
 
-<h2 class="section-title">Compétences Techniques</h2>
-<ul>
-    <li>Développement Web : HTML, CSS, Node.js</li>
-    <li>Langages : PHP, Java, JS, SQL</li>
-    <li>Outils : Visual Studio Code</li>
-    <li>Installation de systèmes d’exploitation et réseaux</li>
-    <li>Installation de systèmes informatiques, réseaux et caméras</li>
-</ul>
+        <section>
+            <h2>Expérience Professionnelle</h2>
+            <ul>
+                <li>Résolution des problèmes techniques utilisateurs</li>
+                <li>Maintenance systèmes et réseaux</li>
+                <li>Installation logiciels, caméras et équipements</li>
+            </ul>
+        </section>
 
-<h2 class="section-title">Langues</h2>
-<ul>
-    <li>Français : Parler et Écrire</li>
-    <li>Anglais moyen : Parler et Écrire</li>
-    <li>Arabe local : Parler</li>
-</ul>
+        <section>
+            <h2>Études & Diplômes</h2>
+            <ul>
+                <li>Licence en Math-Appliquées (2018–2022)</li>
+                <li>Baccalauréat série D</li>
+                <li>Études secondaires, collège et primaires</li>
+            </ul>
+        </section>
 
-<h2 class="section-title">Centres d’intérêt</h2>
-<ul>
-    <li>Musique</li>
-    <li>Sport</li>
-    <li>Lecture</li>
-    <li>Balade</li>
-</ul>
-```
+        <section>
+            <h2>Stages</h2>
+            <ul>
+                <li>Université Virtuelle : Développement d'une application de gestion des stagiaires</li>
+                <li>Ministère des Finances : DSI, maintenance, réseaux, support</li>
+            </ul>
+        </section>
 
+        <section>
+            <h2>Compétences</h2>
+            <ul>
+                <li>Développement Web : HTML, CSS, JS, Node.js</li>
+                <li>Programmation : PHP, Java, SQL</li>
+                <li>Outils : VS Code, XAMPP</li>
+                <li>Installation systèmes, réseaux et caméras</li>
+            </ul>
+        </section>
+
+        <button class="download-btn" onclick="downloadWord()">📥 Télécharger en Word</button>
+        <button class="download-btn pdf" onclick="downloadPDF()">📄 Télécharger en PDF</button>
+    </main>
 </div>
+
+<script>
+function downloadWord() {
+    const a = document.createElement('a');
+    a.href = 'CV_Djerareoutar_Nestor.docx';
+    a.download = 'CV_Djerareoutar_Nestor.docx';
+    a.click();
+}
+function downloadPDF() {
+    const a = document.createElement('a');
+    a.href = 'CV_Djerareoutar_Nestor.pdf';
+    a.download = 'CV_Djerareoutar_Nestor.pdf';
+    a.click();
+}
+</script>
+
 </body>
 </html>
