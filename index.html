@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Djerareoutar Nestor - Développeur Web & Mobile</title>
+    <meta name="description" content="Djerareoutar Nestor - Développeur Web Full-Stack & Mobile à N'Djamena, Tchad. Spécialisé en applications de gestion : RH, Paie, École, Stock. Solutions web et mobile Android sur mesure.">
+    <meta name="keywords" content="développeur web Tchad, application gestion, gestion RH, gestion paie, gestion scolaire, développement mobile Android, N'Djamena, application web entreprise">
+    <meta name="author" content="Djerareoutar Nestor">
+    <title>Djerareoutar Nestor - Développeur d'Applications de Gestion | Web & Mobile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,22 +18,22 @@
         }
 
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #1f2937;
-            --bg-color: #ffffff;
-            --card-bg: #f9fafb;
-            --border-color: #e5e7eb;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --primary: #0066FF;
+            --secondary: #00C896;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #FF6B35;
+            --text: #2d3748;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: all 0.3s ease;
+            color: var(--text);
+            background: #ffffff;
+            overflow-x: hidden;
         }
 
         .container {
@@ -36,130 +42,185 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1rem 0;
+        /* Navigation Moderne */
+        nav {
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        nav.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            color: white;
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
+            gap: 2.5rem;
             list-style: none;
-            gap: 2rem;
         }
 
-        .nav-menu a {
-            color: white;
+        .nav-links a {
+            color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
+            position: relative;
+            transition: color 0.3s;
         }
 
-        .nav-menu a:hover {
-            opacity: 0.8;
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        /* Hero Section */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Moderne */
         .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 20px 80px;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
         }
 
         .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .profile-image {
-            margin-bottom: 2rem;
-        }
-
-        .profile-image img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: var(--shadow-lg);
-            object-fit: cover;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-text h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s ease;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-text h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .subtitle {
+        .hero-text p {
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.4s both;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2rem;
+            max-width: 500px;
         }
 
-        .location {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            opacity: 0.85;
-            animation: fadeInUp 0.8s ease 0.6s both;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             margin-top: 2rem;
-            animation: fadeInUp 0.8s ease 0.8s both;
         }
 
-        .btn-primary, .btn-secondary {
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-size: 1rem;
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
 
         .btn-primary {
             background: white;
-            color: var(--primary-color);
-            border: none;
+            color: var(--primary);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary {
@@ -170,397 +231,368 @@
 
         .btn-secondary:hover {
             background: white;
-            color: var(--primary-color);
+            color: var(--primary);
         }
 
-        /* Theme Switcher */
-        .theme-switcher {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
+        .hero-image {
+            position: relative;
         }
 
-        .theme-switcher p {
+        .hero-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            font-weight: 600;
-            color: var(--text-color);
         }
 
-        .theme-buttons {
+        .hero-card ul {
+            list-style: none;
+        }
+
+        .hero-card li {
+            padding: 0.5rem 0;
+            color: var(--text);
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .theme-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            background: white;
+        .hero-card li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        .theme-btn:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow);
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 20px;
-        }
-
+        /* Section Titre */
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-color);
-            position: relative;
-            padding-bottom: 1rem;
+            margin-bottom: 4rem;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--card-bg);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark);
             margin-bottom: 1rem;
-            color: #4b5563;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .skill-card p {
+        .section-title p {
+            font-size: 1.2rem;
             color: #6b7280;
-            margin-bottom: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .skill-bar {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 4px;
+        /* Section Solutions */
+        .solutions {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
             overflow: hidden;
         }
 
-        .skill-level {
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 4px;
-            animation: fillBar 1.5s ease-in-out;
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
 
-        /* Services Section */
-        .services {
-            background: var(--card-bg);
+        .solution-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .services-grid {
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .solution-card p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list li {
+            padding: 0.4rem 0;
+            color: var(--text);
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .features-list li::before {
+            content: '▸';
+            color: var(--secondary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        /* Section Technologies */
+        .technologies {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        /* Resources Section */
-        .resources-intro {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .course-card {
-            background: white;
+        .tech-card {
+            background: var(--light);
             padding: 2rem;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
-            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            background: white;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid var(--border-color);
-        }
-
-        .course-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
         }
 
-        .course-icon {
+        .tech-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .course-card h3 {
-            font-size: 1.4rem;
+        .tech-card h4 {
+            color: var(--dark);
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
         }
 
-        .course-card p {
-            color: #6b7280;
+        .tech-level {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .tech-level-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Section Avantages */
+        .advantages {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 1rem;
         }
 
-        .course-status {
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            background: #fef3c7;
-            color: #92400e;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+        .advantage-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
         }
 
-        /* Contact Section */
+        /* Section Processus */
+        .process {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .step p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Section Contact */
         .contact {
-            background: var(--card-bg);
+            padding: 6rem 0;
+            background: var(--light);
         }
 
         .contact-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Contact Form Styles */
-        .contact-form-container {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-form-container h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-intro {
-            color: #6b7280;
-            margin-bottom: 2rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
-            font-weight: 600;
+            display: block;
             margin-bottom: 0.5rem;
-            color: var(--text-color);
+            color: var(--text);
+            font-weight: 500;
         }
 
         .form-group input,
-        .form-group textarea {
-            padding: 0.75rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
             font-family: inherit;
+            font-size: 1rem;
             transition: border-color 0.3s;
-            background: var(--bg-color);
-            color: var(--text-color);
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: var(--primary);
         }
 
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
-        }
-
-        .btn-submit {
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .form-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            display: none;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .form-message.success {
-            background: #d1fae5;
-            color: #065f46;
-            display: block;
-        }
-
-        .form-message.error {
-            background: #fee2e2;
-            color: #991b1b;
-            display: block;
-        }
-
-        /* Contact Info Side */
-        .contact-info-side {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .info-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .info-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .info-card p {
-            color: #6b7280;
-            font-size: 0.95rem;
-        }
-
-        .info-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .info-card a:hover {
-            text-decoration: underline;
         }
 
         .contact-info {
@@ -569,68 +601,62 @@
             gap: 1.5rem;
         }
 
-        .contact-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            padding: 1.5rem;
+        .info-card {
             background: white;
-            border-radius: 12px;
+            padding: 1.8rem;
+            border-radius: 15px;
             box-shadow: var(--shadow);
+            display: flex;
+            gap: 1.2rem;
+            align-items: start;
+            transition: all 0.3s;
         }
 
-        .contact-icon {
-            font-size: 2rem;
+        .info-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
 
-        .contact-item h4 {
-            color: var(--primary-color);
+        .info-content h4 {
+            color: var(--dark);
             margin-bottom: 0.3rem;
+            font-size: 1.1rem;
         }
 
-        .contact-item a {
-            color: var(--primary-color);
+        .info-content p,
+        .info-content a {
+            color: #6b7280;
             text-decoration: none;
         }
 
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-cta {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-cta h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .contact-cta p {
-            color: #6b7280;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        .info-content a:hover {
+            color: var(--primary);
         }
 
         /* Footer */
-        .footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        footer {
+            background: var(--dark);
             color: white;
+            padding: 3rem 0;
             text-align: center;
-            padding: 2rem;
         }
 
-        .footer p {
-            margin: 0.3rem 0;
-            opacity: 0.9;
+        footer p {
+            opacity: 0.8;
+            margin: 0.5rem 0;
         }
 
         /* Modal */
@@ -642,62 +668,30 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.3s ease;
+            background: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s;
         }
 
         .modal-content {
             background: white;
-            margin: 5% auto;
+            margin: 3% auto;
             padding: 0;
-            border-radius: 12px;
+            border-radius: 20px;
             width: 90%;
-            max-width: 900px;
+            max-width: 600px;
             position: relative;
-            animation: slideDown 0.3s ease;
+            animation: slideUp 0.4s;
         }
 
-        .modal-body {
-            padding: 3rem;
-            text-align: center;
-        }
-
-        .modal-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .close {
-            color: #6b7280;
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close:hover {
-            color: var(--primary-color);
-        }
-
-        #courseMessage {
-            font-size: 1.2rem;
-            color: #4b5563;
-            line-height: 1.6;
-        }
-
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        @keyframes fadeInUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -705,261 +699,419 @@
             }
         }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @keyframes fillBar {
-            from { width: 0; }
+        .modal-header h3 {
+            color: var(--dark);
+            font-size: 1.8rem;
         }
 
-        /* Theme Variations */
-        body.dark-theme {
-            --bg-color: #1f2937;
-            --card-bg: #374151;
-            --text-color: #f9fafb;
-            --border-color: #4b5563;
+        .close {
+            font-size: 2rem;
+            color: #6b7280;
+            cursor: pointer;
+            transition: color 0.3s;
         }
 
-        body.blue-theme {
-            --bg-color: #eff6ff;
-            --card-bg: #dbeafe;
-            --text-color: #1e3a8a;
-            --primary-color: #3b82f6;
+        .close:hover {
+            color: var(--primary);
         }
 
-        body.red-theme {
-            --bg-color: #fef2f2;
-            --card-bg: #fee2e2;
-            --text-color: #7f1d1d;
-            --primary-color: #ef4444;
+        .modal-body {
+            padding: 2rem;
         }
 
-        body.green-theme {
-            --bg-color: #f0fdf4;
-            --card-bg: #dcfce7;
-            --text-color: #14532d;
-            --primary-color: #22c55e;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                flex-direction: column;
-                gap: 1rem;
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .hero-text h2 {
-                font-size: 1.3rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .skills-grid,
-            .services-grid,
-            .courses-grid {
-                grid-template-columns: 1fr;
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .contact-content {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .nav-links {
+                display: none;
             }
         }
 
-        @media (max-width: 480px) {
-            .profile-image img {
-                width: 150px;
-                height: 150px;
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2rem;
             }
 
-            .hero {
-                padding: 100px 20px 60px;
+            .section-title h2 {
+                font-size: 2rem;
             }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .solutions-grid,
+            .tech-grid,
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations d'entrée */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="logo">DN</h1>
-            <ul class="nav-menu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">DN</div>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#technologies">Technologies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Section Hero -->
+    <!-- Hero Section -->
     <section id="accueil" class="hero">
-        <div class="hero-content">
-            <div class="profile-image">
-                <img src="upload/Imagedeveloper.png" alt="Djerareoutar Nestor">
-            </div>
-            <div class="hero-text">
-                <h1>Djerareoutar Nestor</h1>
-                <h2>Développeur Web Full-Stack & Mobile</h2>
-                <p class="subtitle">Centre Informatique du Ministère des Finances, du Budget et des Comptes Publics</p>
-                <p class="location">📍 N'Djamena, Tchad</p>
-                <div class="cta-buttons">
-                    <button class="btn-primary" onclick="openCVModal()">Voir mon CV</button>
-                    <a href="#contact" class="btn-secondary">Me contacter</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Thème switcher -->
-    <div class="theme-switcher">
-        <p>🎨 Changer le thème :</p>
-        <div class="theme-buttons">
-            <button class="theme-btn light" onclick="changeTheme('light')" title="Clair">☀️</button>
-            <button class="theme-btn dark" onclick="changeTheme('dark')" title="Sombre">🌙</button>
-            <button class="theme-btn blue" onclick="changeTheme('blue')" title="Bleu">💙</button>
-            <button class="theme-btn red" onclick="changeTheme('red')" title="Rouge">❤️</button>
-            <button class="theme-btn green" onclick="changeTheme('green')" title="Vert">💚</button>
-        </div>
-    </div>
-
-    <!-- Section À propos -->
-    <section class="about">
         <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
-            <div class="about-content">
-                <p>Développeur web passionné, actuellement au Centre Informatique du Ministère des Finances, du Budget et des Comptes Publics. Je suis spécialisé dans le développement d'applications web modernes et dynamiques.</p>
-                <p>Mon objectif est de créer des solutions digitales innovantes qui répondent aux besoins réels des entreprises et organisations.</p>
-            </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Développeur d'<span class="highlight">Applications de Gestion</span></h1>
+                    <h2>Solutions Web & Mobile pour Entreprises</h2>
+                    <p>Je crée des applications sur mesure qui automatisent et simplifient la gestion de votre entreprise : RH, Paie, École, Stock et bien plus.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projets livrés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Clients satisfaits</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Ans d'expérience</span>
+                        </div>
+                    </div>
 
-    <!-- Section Compétences -->
-    <section id="competences" class="skills">
-        <div class="container">
-            <h2 class="section-title">Mes Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3>PHP</h3>
-                    <p>Développement back-end, gestion de sessions, intégration API</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%"></div>
+                    <div class="cta-buttons">
+                        <a href="#solutions" class="btn btn-primary">Voir mes solutions</a>
+                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">☕</div>
-                    <h3>Java</h3>
-                    <p>Programmation orientée objet, applications robustes</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3>JavaScript</h3>
-                    <p>Interactivité web, manipulation DOM, requêtes AJAX</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>MySQL</h3>
-                    <p>Gestion de bases de données, requêtes optimisées</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 78%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🎨</div>
-                    <h3>HTML/CSS</h3>
-                    <p>Design responsive, interfaces modernes</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🔗</div>
-                    <h3>Git/GitHub</h3>
-                    <p>Contrôle de version, collaboration</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 70%"></div>
+
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <h3>🎯 Solutions Disponibles</h3>
+                        <ul>
+                            <li>Gestion des Employés (RH)</li>
+                            <li>Gestion de Paie</li>
+                            <li>Gestion Scolaire</li>
+                            <li>Gestion de Stock</li>
+                            <li>Applications Android</li>
+                            <li>Tableaux de bord</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Services -->
-    <section id="projets" class="services">
+    <!-- Section Solutions -->
+    <section id="solutions" class="solutions">
         <div class="container">
-            <h2 class="section-title">Services Proposés</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Développement Web</h3>
-                    <p>Création de sites web professionnels et applications dynamiques adaptés à vos besoins</p>
+            <div class="section-title">
+                <h2>Mes Solutions de Gestion</h2>
+                <p>Applications web et mobile conçues pour automatiser votre gestion quotidienne</p>
+            </div>
+
+            <div class="solutions-grid">
+                <!-- Solution 1: Gestion École -->
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">🏫</div>
+                    <h3>EduManager Pro</h3>
+                    <p>Solution complète pour la gestion scolaire moderne</p>
+                    <ul class="features-list">
+                        <li>Gestion des élèves et inscriptions</li>
+                        <li>Saisie et consultation des notes</li>
+                        <li>Gestion des frais scolaires</li>
+                        <li>Bulletins automatiques</li>
+                        <li>Communication parents-école</li>
+                        <li>Application mobile pour parents</li>
+                        <li>Emplois du temps interactifs</li>
+                        <li>Rapports et statistiques</li>
+                    </ul>
+                    <span class="price-tag">À partir de 1 200 000 FCFA</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>Applications d'Entreprise</h3>
-                    <p>Développement de solutions sur mesure pour la gestion de vos processus métier</p>
+
+                <!-- Solution 2: Gestion RH -->
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">👔</div>
+                    <h3>StaffManager Plus</h3>
+                    <p>Gestion complète du personnel et des ressources humaines</p>
+                    <ul class="features-list">
+                        <li>Dossiers complets des employés</li>
+                        <li>Gestion présences et absences</li>
+                        <li>Gestion des congés</li>
+                        <li>Évaluation des performances</li>
+                        <li>Gestion des contrats</li>
+                        <li>App mobile pour pointage</li>
+                        <li>Organigramme dynamique</li>
+                        <li>Tableaux de bord RH</li>
+                    </ul>
+                    <span class="price-tag">À partir de 1 500 000 FCFA</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Maintenance & Support</h3>
-                    <p>Mise à jour, optimisation et support technique de vos applications existantes</p>
+
+                <!-- Solution 3: Gestion Paie -->
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">💰</div>
+                    <h3>PayrollMaster</h3>
+                    <p>Calcul et gestion automatique des salaires</p>
+                    <ul class="features-list">
+                        <li>Calcul automatique des salaires</li>
+                        <li>Gestion primes et indemnités</li>
+                        <li>Cotisations sociales (CNPS)</li>
+                        <li>Génération bulletins de paie</li>
+                        <li>Calcul des impôts (IRPP)</li>
+                        <li>Export bancaire</li>
+                        <li>Envoi automatique par email</li>
+                        <li>Historique complet</li>
+                    </ul>
+                    <span class="price-tag">À partir de 1 800 000 FCFA</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Design Responsive</h3>
-                    <p>Interfaces adaptées à tous les appareils (mobile, tablette, ordinateur)</p>
+
+                <!-- Solution 4: Gestion Stock -->
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">📦</div>
+                    <h3>StockPro Manager</h3>
+                    <p>Suivi et gestion de stock en temps réel</p>
+                    <ul class="features-list">
+                        <li>Suivi en temps réel</li>
+                        <li>Alertes stock minimum</li>
+                        <li>Gestion fournisseurs</li>
+                        <li>Historique mouvements</li>
+                        <li>Inventaires automatiques</li>
+                        <li>Code-barres / QR Code</li>
+                        <li>Rapports détaillés</li>
+                        <li>Multi-dépôts</li>
+                    </ul>
+                    <span class="price-tag">À partir de 800 000 FCFA</span>
+                </div>
+
+                <!-- Solution 5: Gestion Pharmacie -->
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">💊</div>
+                    <h3>PharmaManager</h3>
+                    <p>Solution spécialisée pour pharmacies</p>
+                    <ul class="features-list">
+                        <li>Gestion médicaments</li>
+                        <li>Dates de péremption</li>
+                        <li>Ordonnances et ventes</li>
+                        <li>Stock automatisé</li>
+                        <li>Alerte péremption</li>
+                        <li>Facturation rapide</li>
+                        <li>Rapports CNPS</li>
+                        <li>Statistiques ventes</li>
+                    </ul>
+                    <span class="price-tag">À partir de 1 200 000 FCFA</span>
+                </div>
+
+                <!-- Solution 6: Applications Mobile Android -->
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">📱</div>
+                    <h3>Applications Android</h3>
+                    <p>Apps mobiles natives adaptées à vos besoins</p>
+                    <ul class="features-list">
+                        <li>Interface moderne Material Design</li>
+                        <li>Mode hors-ligne</li>
+                        <li>Notifications push</li>
+                        <li>Appareil photo intégré</li>
+                        <li>Géolocalisation GPS</li>
+                        <li>Biométrie (empreinte)</li>
+                        <li>Performance optimisée</li>
+                        <li>Compatible Android 6.0+</li>
+                    </ul>
+                    <span class="price-tag">+400 000 à +600 000 FCFA</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Ressources -->
-    <section class="resources">
+    <!-- Section Avantages -->
+    <section class="advantages">
         <div class="container">
-            <h2 class="section-title">📚 Ressources & Cours</h2>
-            <p class="resources-intro">Découvrez mes supports de cours en développement web</p>
-            <div class="courses-grid">
-                <div class="course-card" onclick="openCourseModal('PHP')">
-                    <div class="course-icon">🔧</div>
-                    <h3>Cours PHP</h3>
-                    <p>Programmation serveur et bases de données</p>
-                    <span class="course-status">En préparation</span>
+            <div class="section-title">
+                <h2 style="color: white;">Pourquoi Choisir Mes Solutions ?</h2>
+                <p style="color: rgba(255,255,255,0.9);">Des applications qui transforment vraiment votre gestion</p>
+            </div>
+
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Gain de Temps</h3>
+                    <p>Automatisation complète qui vous fait économiser jusqu'à 70% de temps sur vos tâches administratives quotidiennes</p>
                 </div>
-                <div class="course-card" onclick="openCourseModal('Java')">
-                    <div class="course-icon">☕</div>
-                    <h3>Cours Java</h3>
-                    <p>Programmation orientée objet</p>
-                    <span class="course-status">En préparation</span>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">✓</div>
+                    <h3>Zéro Erreur</h3>
+                    <p>Calculs automatiques précis, élimination des erreurs de saisie manuelle, données fiables à 100%</p>
                 </div>
-                <div class="course-card" onclick="openCourseModal('JavaScript')">
-                    <div class="course-icon">⚡</div>
-                    <h3>Cours JavaScript</h3>
-                    <p>Développement web interactif</p>
-                    <span class="course-status">En préparation</span>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">📊</div>
+                    <h3>Rapports Instantanés</h3>
+                    <p>Tableaux de bord en temps réel, statistiques détaillées, exports Excel/PDF en un clic</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">🔒</div>
+                    <h3>Sécurité Maximale</h3>
+                    <p>Données chiffrées, sauvegardes automatiques, accès sécurisés multi-niveaux pour protéger vos informations</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">📱</div>
+                    <h3>Accessible Partout</h3>
+                    <p>Applications web et mobile, travaillez depuis n'importe où, sur PC, tablette ou smartphone</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">💪</div>
+                    <h3>Support Dédié</h3>
+                    <p>Formation complète incluse, maintenance régulière, support technique réactif en français</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Technologies -->
+    <section id="technologies" class="technologies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technologies Maîtrisées</h2>
+                <p>Stack technique moderne pour des applications performantes</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">⚛️</div>
+                    <h4>React / Vue.js</h4>
+                    <p>Interfaces web modernes</p>
+                    <div class="tech-level">
+                        <div class="tech-level-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🔧</div>
+                    <h4>PHP / Laravel</h4>
+                    <p>Backend robuste</p>
+                    <div class="tech-level">
+                        <div class="tech-level-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">📱</div>
+                    <h4>Flutter / React Native</h4>
+                    <p>Apps mobiles natives</p>
+                    <div class="tech-level">
+                        <div class="tech-level-fill" style="width: 82%"></div>
+                    </div>
+                </div>
+
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🗄️</div>
+                    <h4>MySQL / PostgreSQL</h4>
+                    <p>Bases de données</p>
+                    <div class="tech-level">
+                        <div class="tech-level-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">⚡</div>
+                    <h4>Node.js</h4>
+                    <p>Backend JavaScript</p>
+                    <div class="tech-level">
+                        <div class="tech-level-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🔗</div>
+                    <h4>API REST / GraphQL</h4>
+                    <p>Intégrations</p>
+                    <div class="tech-level">
+                        <div class="tech-level-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Processus -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comment Je Travaille</h2>
+                <p>Un processus simple et transparent du début à la livraison</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Analyse</h3>
+                    <p>Comprendre vos besoins et définir les fonctionnalités essentielles</p>
+                </div>
+
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Conception</h3>
+                    <p>Création des maquettes et validation du design avec vous</p>
+                </div>
+
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Développement</h3>
+                    <p>Programmation de l'application avec tests réguliers</p>
+                </div>
+
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Livraison</h3>
+                    <p>Installation, formation de votre équipe et mise en production</p>
                 </div>
             </div>
         </div>
@@ -968,56 +1120,95 @@
     <!-- Section Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Me Contacter</h2>
+            <div class="section-title">
+                <h2>Demandez Votre Devis Gratuit</h2>
+                <p>Parlons de votre projet et trouvons la meilleure solution ensemble</p>
+            </div>
+
             <div class="contact-content">
-                <div class="contact-form-container">
-                    <h3>Envoyez-moi un message</h3>
-                    <p class="form-intro">Remplissez ce formulaire et je vous répondrai dans les plus brefs délais</p>
-                    <form id="contactForm" class="contact-form">
+                <div class="contact-form">
+                    <h3>📧 Formulaire de Contact</h3>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            <input type="text" id="name" required placeholder="Votre nom">
                         </div>
+
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com">
+                            <input type="email" id="email" required placeholder="votre.email@exemple.com">
                         </div>
+
                         <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+235 XX XX XX XX">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" required placeholder="+235 XX XX XX XX">
                         </div>
+
                         <div class="form-group">
-                            <label for="subject">Sujet *</label>
-                            <input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
+                            <label for="solution">Solution qui vous intéresse *</label>
+                            <select id="solution" required>
+                                <option value="">-- Choisissez --</option>
+                                <option value="gestion-ecole">Gestion École</option>
+                                <option value="gestion-rh">Gestion RH</option>
+                                <option value="gestion-paie">Gestion Paie</option>
+                                <option value="gestion-stock">Gestion Stock</option>
+                                <option value="app-mobile">Application Mobile</option>
+                                <option value="autre">Autre / Personnalisé</option>
+                            </select>
                         </div>
+
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                            <label for="message">Décrivez votre projet *</label>
+                            <textarea id="message" required placeholder="Parlez-moi de vos besoins..."></textarea>
                         </div>
-                        <button type="submit" class="btn-submit">Envoyer le message</button>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Envoyer ma demande
+                        </button>
                     </form>
-                    <div id="formMessage" class="form-message"></div>
                 </div>
-                <div class="contact-info-side">
+
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <a href="mailto:djdjerareoutardjnestor@gmail.com">djdjerareoutardjnestor@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📱</div>
+                        <div class="info-content">
+                            <h4>WhatsApp</h4>
+                            <p>Contactez-moi sur WhatsApp</p>
+                            <a href="https://wa.me/235XXXXXXXX" target="_blank">Ouvrir WhatsApp</a>
+                        </div>
+                    </div>
+
                     <div class="info-card">
                         <div class="info-icon">💻</div>
-                        <h4>GitHub</h4>
-                        <a href="https://github.com/login" target="_blank">Voir mes projets</a>
+                        <div class="info-content">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/VOTRE_USERNAME" target="_blank">Voir mes projets open source</a>
+                        </div>
                     </div>
+
                     <div class="info-card">
                         <div class="info-icon">📍</div>
-                        <h4>Localisation</h4>
-                        <p>N'Djamena, Tchad</p>
+                        <div class="info-content">
+                            <h4>Localisation</h4>
+                            <p>N'Djamena, Tchad</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Disponible pour projets sur place et à distance</p>
+                        </div>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon">💼</div>
-                        <h4>Disponibilité</h4>
-                        <p>Disponible pour des projets freelance et collaborations</p>
-                    </div>
+
                     <div class="info-card">
                         <div class="info-icon">⏰</div>
-                        <h4>Temps de réponse</h4>
-                        <p>Réponse sous 24-48h</p>
+                        <div class="info-content">
+                            <h4>Réponse Rapide</h4>
+                            <p>Sous 24-48h maximum</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1025,248 +1216,136 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> Djerareoutar Nestor - Développeur Web & Mobile</p>
-            <p>Centre Informatique du Ministère des Finances, du Budget et des Comptes Publics</p>
+            <p><strong>Djerareoutar Nestor</strong> - Développeur Web Full-Stack & Mobile</p>
+            <p>Spécialiste Applications de Gestion | N'Djamena, Tchad</p>
+            <p>&copy; <span id="year"></span> Tous droits réservés</p>
         </div>
     </footer>
 
-    <!-- Modal CV -->
-    <div id="cvModal" class="modal">
+    <!-- Modal Offre Spéciale -->
+    <div id="offerModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeCVModal()">&times;</span>
-            <iframe src="cv.html" width="100%" height="600px"></iframe>
-        </div>
-    </div>
-
-    <!-- Modal Cours -->
-    <div id="courseModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCourseModal()">&times;</span>
+            <div class="modal-header">
+                <h3>🎉 Offre de Lancement 2026</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
             <div class="modal-body">
-                <div class="modal-icon">📚</div>
-                <p id="courseMessage"></p>
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Profitez de -40% sur votre premier projet !</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0;">✅ 40% de réduction sur le prix</li>
+                    <li style="padding: 0.5rem 0;">✅ 3 mois de maintenance GRATUITS</li>
+                    <li style="padding: 0.5rem 0;">✅ Formation de votre équipe INCLUSE</li>
+                    <li style="padding: 0.5rem 0;">✅ Livraison en 30-45 jours</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: var(--accent); font-weight: 600;">
+                    Valable pour les 5 premiers clients uniquement !
+                </p>
+                <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;" onclick="closeModal()">
+                    Je veux en profiter
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        // Theme Management
-        function changeTheme(theme) {
-            const body = document.body;
-            
-            // Remove all theme classes
-            body.classList.remove('dark-theme', 'blue-theme', 'red-theme', 'green-theme');
-            
-            // Apply selected theme
-            switch(theme) {
-                case 'dark':
-                    body.classList.add('dark-theme');
-                    break;
-                case 'blue':
-                    body.classList.add('blue-theme');
-                    break;
-                case 'red':
-                    body.classList.add('red-theme');
-                    break;
-                case 'green':
-                    body.classList.add('green-theme');
-                    break;
-                case 'light':
-                default:
-                    // Light theme is default, no class needed
-                    break;
-            }
-            
-            // Save theme preference
-            localStorage.setItem('selectedTheme', theme);
-        }
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-        // Load saved theme on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('selectedTheme');
-            if (savedTheme) {
-                changeTheme(savedTheme);
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-            // Set current year in footer
-            const currentYear = new Date().getFullYear();
-            document.getElementById('currentYear').textContent = currentYear;
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
 
-        // CV Modal Functions
-        function openCVModal() {
-            document.getElementById('cvModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCVModal() {
-            document.getElementById('cvModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Course Modal Functions
-        function openCourseModal(cours) {
-            const message = `Le cours ${cours} sera bientôt disponible. 
-            
-Je travaille actuellement à la création de contenu de qualité pour vous aider à maîtriser cette technologie. 
-            
-Pour toute question ou demande de formation personnalisée, n'hésitez pas à me contacter !`;
-            
-            document.getElementById('courseMessage').innerText = message;
-            document.getElementById('courseModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCourseModal() {
-            document.getElementById('courseModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const cvModal = document.getElementById('cvModal');
-            const courseModal = document.getElementById('courseModal');
-            
-            if (event.target === cvModal) {
-                closeCVModal();
-            }
-            if (event.target === courseModal) {
-                closeCourseModal();
-            }
-        }
-
-        // Close modals with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeCVModal();
-                closeCourseModal();
+        // Navigation scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
         });
 
-        // Smooth scroll for navigation links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 70; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                solution: document.getElementById('solution').value,
+                message: document.getElementById('message').value
+            };
 
-        // Observe all cards and sections
-        window.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.skill-card, .service-card, .course-card, .contact-item');
-            
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-
-        // Add active state to navigation on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.style.opacity = '0.7';
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.style.opacity = '1';
-                }
-            });
-        });
-
-        // Contact Form Handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const formMessage = document.getElementById('formMessage');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    // Get form data
-                    const formData = {
-                        name: document.getElementById('name').value,
-                        email: document.getElementById('email').value,
-                        phone: document.getElementById('phone').value,
-                        subject: document.getElementById('subject').value,
-                        message: document.getElementById('message').value
-                    };
-
-                    // Create email body
-                    const emailBody = `
-Nouveau message de contact depuis votre portfolio
+            const emailBody = `
+Nouvelle demande de devis depuis votre portfolio
 
 Nom: ${formData.name}
 Email: ${formData.email}
-Téléphone: ${formData.phone || 'Non fourni'}
-Sujet: ${formData.subject}
+Téléphone: ${formData.phone}
+Solution: ${formData.solution}
 
 Message:
 ${formData.message}
-                    `.trim();
 
-                    // Create mailto link (fallback method)
-                    const mailtoLink = `mailto:djdjerareoutardjnestor@gmail.com?subject=${encodeURIComponent('Portfolio - ' + formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+---
+Envoyé depuis le portfolio - ${new Date().toLocaleString('fr-FR')}
+            `.trim();
 
-                    // Show success message
-                    formMessage.className = 'form-message success';
-                    formMessage.textContent = 'Redirection vers votre client email...';
+            const mailtoLink = `mailto:djdjerareoutardjnestor@gmail.com?subject=${encodeURIComponent('Demande de devis - ' + formData.solution)}&body=${encodeURIComponent(emailBody)}`;
 
-                    // Open email client after short delay
-                    setTimeout(() => {
-                        window.location.href = mailtoLink;
-                        
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Update message
-                        formMessage.textContent = 'Merci ! Votre message a été préparé. Envoyez-le depuis votre client email.';
-                        
-                        // Hide message after 5 seconds
-                        setTimeout(() => {
-                            formMessage.style.display = 'none';
-                        }, 5000);
-                    }, 1000);
-                });
-            }
+            window.location.href = mailtoLink;
+            
+            alert('✅ Merci ! Votre message a été préparé. Il va s\'ouvrir dans votre client email.');
+            
+            this.reset();
         });
+
+        // Modal offre spéciale - s'affiche après 10 secondes
+        setTimeout(() => {
+            document.getElementById('offerModal').style.display = 'block';
+        }, 10000);
+
+        function closeModal() {
+            document.getElementById('offerModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('offerModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Année actuelle
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
-
