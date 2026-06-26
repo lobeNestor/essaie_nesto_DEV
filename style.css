@@ -309,6 +309,21 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); }
 textarea { resize: vertical; min-height: 120px; }
 select option { background: var(--surface); }
 
+.form-status {
+  font-size: .9rem; font-weight: 500; text-align: center;
+  padding: 0; min-height: 0; border-radius: 10px;
+  transition: all .2s; overflow: hidden;
+}
+.form-status:empty { padding: 0; margin: 0; }
+.form-status.success {
+  background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.35);
+  color: #4ade80; padding: .9rem 1rem;
+}
+.form-status.error {
+  background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.35);
+  color: #f87171; padding: .9rem 1rem;
+}
+
 /* ─── BARRE PROMO ─── */
 .promo-bar {
   background: linear-gradient(90deg, var(--accent), #8b5cf6, var(--gold));
