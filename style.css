@@ -1,6 +1,7 @@
 /* ========================================
    PORTFOLIO - Djerareoutar Nestor
    Fichier : style.css
+   Version optimisée Mobile / Android (Chrome, Samsung Internet)
    ======================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +19,11 @@
   --radius: 16px;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* évite le zoom auto du texte sur Android */
+  text-size-adjust: 100%;
+}
 
 body {
   background: var(--bg);
@@ -27,6 +32,11 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent; /* enlève le flash gris au toucher sur Android */
+}
+
+a, button, .btn-primary, .btn-outline, .contact-link {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ─── NAV ─── */
@@ -36,6 +46,7 @@ nav {
   padding: 1.2rem 6%;
   background: rgba(10,10,15,0.85);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px); /* requis pour certains navigateurs Android/WebView */
   border-bottom: 1px solid var(--border);
 }
 .nav-logo {
@@ -44,7 +55,7 @@ nav {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a {
   text-decoration: none; color: var(--muted);
   font-size: 0.9rem; font-weight: 500; letter-spacing: .03em;
@@ -52,9 +63,35 @@ nav {
 }
 .nav-links a:hover { color: var(--text); }
 
+/* Le CTA "Devis gratuit" dupliqué dans le menu mobile est caché par défaut (desktop) */
+.nav-cta-mobile { display: none; }
+.nav-cta-desktop { display: inline-flex; }
+
+/* Menu burger (caché par défaut, affiché en mobile plus bas) */
+.nav-toggle {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  padding: .5rem; min-width: 44px; min-height: 44px; /* zone tactile confortable */
+  align-items: center; justify-content: center;
+  position: relative;
+}
+.nav-toggle span, .nav-toggle::before, .nav-toggle::after {
+  display: block; width: 24px; height: 2px; background: var(--text);
+  margin: 5px auto; transition: transform .2s, opacity .2s;
+}
+.nav-toggle::before, .nav-toggle::after { content: ''; position: absolute; left: 10px; }
+.nav-toggle::before { top: 12px; }
+.nav-toggle::after { top: 24px; }
+.nav-toggle span { margin-top: 10px; }
+
+.nav-toggle.active span { opacity: 0; }
+.nav-toggle.active::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active::after { transform: translateY(-7px) rotate(-45deg); }
+
 /* ─── HERO ─── */
 #accueil {
   min-height: 100vh;
+  min-height: 100dvh; /* hauteur dynamique correcte sur Android Chrome (barre d'adresse) */
   display: flex; align-items: center;
   padding: 8rem 6% 5rem;
   position: relative; overflow: hidden;
@@ -102,16 +139,22 @@ h1 em {
   font-weight: 600; font-size: .95rem;
   box-shadow: 0 0 30px rgba(108,99,255,0.35);
   transition: transform .2s, box-shadow .2s;
+  min-height: 48px; /* taille tactile recommandée Android (Material Design) */
+  touch-action: manipulation; /* supprime le délai de 300ms au tap sur Android */
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 45px rgba(108,99,255,0.5); }
+.btn-primary:active { transform: scale(0.97); } /* feedback tactile au toucher */
 .btn-outline {
   display: inline-flex; align-items: center; gap: .5rem;
   border: 1px solid var(--border); color: var(--text);
   text-decoration: none; padding: .85rem 2rem; border-radius: 100px;
   font-weight: 500; font-size: .95rem;
   transition: background .2s, border-color .2s;
+  min-height: 48px;
+  touch-action: manipulation;
 }
 .btn-outline:hover { background: var(--surface); border-color: var(--accent); }
+.btn-outline:active { transform: scale(0.97); }
 
 .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
 .stat-card {
@@ -242,8 +285,11 @@ h2 {
   background: var(--bg); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 1rem 1.2rem;
   transition: border-color .2s, transform .2s;
+  min-height: 48px;
+  touch-action: manipulation;
 }
 .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
+.contact-link:active { transform: scale(0.98); }
 .contact-link-icon { font-size: 1.4rem; width: 42px; text-align: center; }
 .contact-link-text strong { display: block; font-size: .9rem; }
 .contact-link-text span { font-size: .8rem; color: var(--muted); }
@@ -254,8 +300,10 @@ label { font-size: .8rem; font-weight: 500; color: var(--muted); margin-bottom: 
 input, select, textarea {
   width: 100%; background: var(--bg); border: 1px solid var(--border);
   border-radius: 10px; padding: .85rem 1rem; color: var(--text);
-  font-family: 'Inter', sans-serif; font-size: .9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; /* IMPORTANT : évite le zoom automatique au focus sur Android/Chrome */
   outline: none; transition: border-color .2s;
+  min-height: 48px; /* zone tactile confortable */
 }
 input:focus, select:focus, textarea:focus { border-color: var(--accent); }
 textarea { resize: vertical; min-height: 120px; }
@@ -277,11 +325,154 @@ footer {
 }
 footer a { color: var(--accent2); text-decoration: none; }
 
-/* ─── RESPONSIVE MOBILE ─── */
+/* ============================================================
+   RESPONSIVE — TABLETTE (≤ 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .solutions-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .contact-grid { gap: 2.5rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE / ANDROID (≤ 768px)
+   ============================================================ */
 @media (max-width: 768px) {
+  section { padding: 4rem 5.5%; }
+
   .hero-grid, .contact-grid { grid-template-columns: 1fr; }
-  .process-steps { grid-template-columns: 1fr 1fr; }
+  #accueil { padding: 6.5rem 5.5% 3.5rem; }
+
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .process-steps::before { display: none; }
+
+  /* Menu mobile : on cache les liens et le CTA desktop, on affiche le burger */
   .nav-links { display: none; }
+  .nav-cta-desktop { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 5.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 6%;
+    padding-right: 6%;
+    background: rgba(10,10,15,0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    gap: 1.2rem;
+    z-index: 99;
+  }
+  .nav-links.mobile-open a {
+    font-size: 1.05rem;
+    padding: .5rem 0;
+  }
+  .nav-cta-mobile {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: .5rem;
+  }
+
   .form-row { grid-template-columns: 1fr; }
+
+  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+  .stat-card { padding: 1rem .6rem; }
+  .stat-num { font-size: 1.9rem; }
+
+  .hero-ctas { width: 100%; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-outline {
+    flex: 1 1 auto; justify-content: center;
+  }
+
+  /* Les effets de flou/transform coûtent cher en perf sur Android : on les allège */
+  .solution-card:hover,
+  .why-card:hover,
+  .tech-pill:hover,
+  .stat-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — PETITS ÉCRANS ANDROID (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .nav-logo { font-size: 1.25rem; }
+  h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
+  .hero-sub { font-size: .95rem; }
+
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-outline {
+    width: 100%;
+  }
+
+  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+  .stat-card { padding: .8rem .4rem; border-radius: 12px; }
+  .stat-num { font-size: 1.5rem; }
+  .stat-label { font-size: .68rem; }
+
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .step-num { width: 48px; height: 48px; font-size: 1.05rem; }
+
+  .solutions-grid, .why-grid, .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-card, .why-card { padding: 1.5rem; }
+
+  .contact-link { padding: .85rem 1rem; }
+}
+
+/* ============================================================
+   ÉCRANS ANDROID TRÈS PETITS (≤ 360px — ex: anciens Galaxy/Moto)
+   ============================================================ */
+@media (max-width: 360px) {
+  section { padding: 3rem 5%; }
+  .nav-logo { font-size: 1.1rem; }
+  h1 { font-size: 1.85rem; }
+  .btn-primary, .btn-outline { padding: .8rem 1.4rem; font-size: .88rem; }
+}
+
+/* ============================================================
+   MODE PAYSAGE MOBILE (hauteur réduite)
+   ============================================================ */
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  #accueil { min-height: auto; padding: 6rem 5.5% 3rem; }
+  .hero-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+/* ============================================================
+   ACCESSIBILITÉ — réduit les animations si l'utilisateur le demande
+   (option "réduire les animations" activable sur Android)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   ÉCRANS TACTILES — désactive les effets ":hover" résiduels
+   qui peuvent rester "collés" après un tap sur Android
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  .solution-card:hover,
+  .why-card:hover,
+  .tech-pill:hover,
+  .stat-card:hover,
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .contact-link:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
 }
