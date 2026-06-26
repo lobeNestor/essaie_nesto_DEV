@@ -256,24 +256,27 @@
         </div>
       </div>
 
-      <form onsubmit="return false;">
+      <form id="contactForm">
+        <input type="hidden" name="access_key" value="e8a1b871-956e-4693-a0dc-97a82280a6a6" />
+        <input type="hidden" name="subject" value="Nouvelle demande de devis - Portfolio Nestor" />
+        <input type="hidden" name="from_name" value="Formulaire Portfolio" />
         <div class="form-row">
           <div>
             <label for="nom">Nom complet</label>
-            <input type="text" id="nom" placeholder="Votre nom"/>
+            <input type="text" id="nom" name="name" placeholder="Votre nom" required/>
           </div>
           <div>
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="vous@example.com"/>
+            <input type="email" id="email" name="email" placeholder="vous@example.com" required/>
           </div>
         </div>
         <div>
           <label for="tel">Téléphone</label>
-          <input type="tel" id="tel" placeholder="+235 ..."/>
+          <input type="tel" id="tel" name="phone" placeholder="+235 ..."/>
         </div>
         <div>
           <label for="solution">Solution souhaitée</label>
-          <select id="solution">
+          <select id="solution" name="solution">
             <option value="">-- Choisissez --</option>
             <option>Gestion École</option>
             <option>Gestion RH</option>
@@ -285,11 +288,12 @@
         </div>
         <div>
           <label for="message">Décrivez votre projet</label>
-          <textarea id="message" placeholder="Expliquez votre besoin..."></textarea>
+          <textarea id="message" name="message" placeholder="Expliquez votre besoin..." required></textarea>
         </div>
-        <button type="submit" class="btn-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;">
+        <button type="submit" id="formSubmitBtn" class="btn-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;">
           Envoyer ma demande →
         </button>
+        <div id="formStatus" class="form-status"></div>
       </form>
     </div>
   </div>
