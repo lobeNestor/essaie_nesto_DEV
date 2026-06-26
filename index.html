@@ -1,1351 +1,301 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Djerareoutar Nestor - Développeur Web Full-Stack & Mobile à N'Djamena, Tchad. Spécialisé en applications de gestion : RH, Paie, École, Stock. Solutions web et mobile Android sur mesure.">
-    <meta name="keywords" content="développeur web Tchad, application gestion, gestion RH, gestion paie, gestion scolaire, développement mobile Android, N'Djamena, application web entreprise">
-    <meta name="author" content="Djerareoutar Nestor">
-    <title>Djerareoutar Nestor - Développeur d'Applications de Gestion | Web & Mobile</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #0066FF;
-            --secondary: #00C896;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --accent: #FF6B35;
-            --text: #2d3748;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: #ffffff;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Moderne */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 0.5rem 0;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section Moderne */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .hero-text .highlight {
-            background: linear-gradient(to right, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text h2 {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: white;
-            display: block;
-        }
-
-        .stat-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-card h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-card ul {
-            list-style: none;
-        }
-
-        .hero-card li {
-            padding: 0.5rem 0;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .hero-card li::before {
-            content: '✓';
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Section Titre */
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .section-title p {
-            font-size: 1.2rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Section Solutions */
-        .solutions {
-            padding: 6rem 0;
-            background: var(--light);
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .solution-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .solution-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .solution-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .solution-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .solution-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-card h3 {
-            font-size: 1.6rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .solution-card p {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .features-list li {
-            padding: 0.4rem 0;
-            color: var(--text);
-            display: flex;
-            align-items: start;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .features-list li::before {
-            content: '▸';
-            color: var(--secondary);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .price-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-        }
-
-        /* Section Technologies */
-        .technologies {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .tech-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .tech-card:hover {
-            background: white;
-            box-shadow: var(--shadow);
-            transform: translateY(-5px);
-        }
-
-        .tech-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-card h4 {
-            color: var(--dark);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tech-level {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 1rem;
-        }
-
-        .tech-level-fill {
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 10px;
-            transition: width 1s ease;
-        }
-
-        /* Section Avantages */
-        .advantages {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .advantage-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .advantage-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        .advantage-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .advantage-card p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
-        }
-
-        /* Section Processus */
-        .process {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step {
-            position: relative;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step h3 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .step p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        /* Section Contact */
-        .contact {
-            padding: 6rem 0;
-            background: var(--light);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-form h3 {
-            font-size: 2rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .info-card {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            display: flex;
-            gap: 1.2rem;
-            align-items: start;
-            transition: all 0.3s;
-        }
-
-        .info-card:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .info-content h4 {
-            color: var(--dark);
-            margin-bottom: 0.3rem;
-            font-size: 1.1rem;
-        }
-
-        .info-content p,
-        .info-content a {
-            color: #6b7280;
-            text-decoration: none;
-        }
-
-        .info-content a:hover {
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: 0.8;
-            margin: 0.5rem 0;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            animation: fadeIn 0.3s;
-        }
-
-        .modal-content {
-            background: white;
-            margin: 3% auto;
-            padding: 0;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            animation: slideUp 0.4s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            padding: 2rem;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h3 {
-            color: var(--dark);
-            font-size: 1.8rem;
-        }
-
-        .close {
-            font-size: 2rem;
-            color: #6b7280;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close:hover {
-            color: var(--primary);
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .stats {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .solutions-grid,
-            .tech-grid,
-            .advantages-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations d'entrée */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Djerareoutar Nestor - Développeur Web Full-Stack & Mobile à N'Djamena, Tchad."/>
+  <title>Nestor — Développeur Full-Stack & Mobile</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Feuille de style externe -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">DN</div>
-                <ul class="nav-links">
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#technologies">Technologies</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Développeur d'<span class="highlight">Applications de Gestion</span></h1>
-                    <h2>Solutions Web & Mobile pour Entreprises</h2>
-                    <p>Je crée des applications sur mesure qui automatisent et simplifient la gestion de votre entreprise : RH, Paie, École, Stock et bien plus.</p>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projets livrés</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">Clients satisfaits</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Ans d'expérience</span>
-                        </div>
-                    </div>
+<!-- BARRE PROMO -->
+<div class="promo-bar">
+  🎉 <strong>Offre Lancement 2026 :</strong> -40% sur votre premier projet + 3 mois maintenance GRATUITS — 5 places restantes !
+</div>
 
-                    <div class="cta-buttons">
-                        <a href="#solutions" class="btn btn-primary">Voir mes solutions</a>
-                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
-                    </div>
-                </div>
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">DN</div>
+  <ul class="nav-links">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#technologies">Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-primary" style="padding:.6rem 1.4rem;font-size:.85rem;">Devis gratuit</a>
+</nav>
 
-                <div class="hero-image">
-                    <div class="hero-card">
-                        <h3>🎯 Solutions Disponibles</h3>
-                        <ul>
-                            <li>Gestion des Employés (RH)</li>
-                            <li>Gestion de Paie</li>
-                            <li>Gestion Scolaire</li>
-                            <li>Gestion de Stock</li>
-                            <li>Applications Android</li>
-                            <li>Tableaux de bord</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Solutions -->
-    <section id="solutions" class="solutions">
-        <div class="container">
-            <div class="section-title">
-                <h2>Mes Solutions de Gestion</h2>
-                <p>Applications web et mobile conçues pour automatiser votre gestion quotidienne</p>
-            </div>
-
-            <div class="solutions-grid">
-                <!-- Solution 1: Gestion École -->
-                <div class="solution-card fade-in">
-                    <div class="solution-icon">🏫</div>
-                    <h3>EduManager Pro</h3>
-                    <p>Solution complète pour la gestion scolaire moderne</p>
-                    <ul class="features-list">
-                        <li>Gestion des élèves et inscriptions</li>
-                        <li>Saisie et consultation des notes</li>
-                        <li>Gestion des frais scolaires</li>
-                        <li>Bulletins automatiques</li>
-                        <li>Communication parents-école</li>
-                        <li>Application mobile pour parents</li>
-                        <li>Emplois du temps interactifs</li>
-                        <li>Rapports et statistiques</li>
-                    </ul>
-                    <span class="price-tag">À partir de 1 200 000 FCFA</span>
-                </div>
-
-                <!-- Solution 2: Gestion RH -->
-                <div class="solution-card fade-in">
-                    <div class="solution-icon">👔</div>
-                    <h3>StaffManager Plus</h3>
-                    <p>Gestion complète du personnel et des ressources humaines</p>
-                    <ul class="features-list">
-                        <li>Dossiers complets des employés</li>
-                        <li>Gestion présences et absences</li>
-                        <li>Gestion des congés</li>
-                        <li>Évaluation des performances</li>
-                        <li>Gestion des contrats</li>
-                        <li>App mobile pour pointage</li>
-                        <li>Organigramme dynamique</li>
-                        <li>Tableaux de bord RH</li>
-                    </ul>
-                    <span class="price-tag">À partir de 1 500 000 FCFA</span>
-                </div>
-
-                <!-- Solution 3: Gestion Paie -->
-                <div class="solution-card fade-in">
-                    <div class="solution-icon">💰</div>
-                    <h3>PayrollMaster</h3>
-                    <p>Calcul et gestion automatique des salaires</p>
-                    <ul class="features-list">
-                        <li>Calcul automatique des salaires</li>
-                        <li>Gestion primes et indemnités</li>
-                        <li>Cotisations sociales (CNPS)</li>
-                        <li>Génération bulletins de paie</li>
-                        <li>Calcul des impôts (IRPP)</li>
-                        <li>Export bancaire</li>
-                        <li>Envoi automatique par email</li>
-                        <li>Historique complet</li>
-                    </ul>
-                    <span class="price-tag">À partir de 1 800 000 FCFA</span>
-                </div>
-
-                <!-- Solution 4: Gestion Stock -->
-                <div class="solution-card fade-in">
-                    <div class="solution-icon">📦</div>
-                    <h3>StockPro Manager</h3>
-                    <p>Suivi et gestion de stock en temps réel</p>
-                    <ul class="features-list">
-                        <li>Suivi en temps réel</li>
-                        <li>Alertes stock minimum</li>
-                        <li>Gestion fournisseurs</li>
-                        <li>Historique mouvements</li>
-                        <li>Inventaires automatiques</li>
-                        <li>Code-barres / QR Code</li>
-                        <li>Rapports détaillés</li>
-                        <li>Multi-dépôts</li>
-                    </ul>
-                    <span class="price-tag">À partir de 800 000 FCFA</span>
-                </div>
-
-                <!-- Solution 5: Gestion Pharmacie -->
-                <div class="solution-card fade-in">
-                    <div class="solution-icon">💊</div>
-                    <h3>PharmaManager</h3>
-                    <p>Solution spécialisée pour pharmacies</p>
-                    <ul class="features-list">
-                        <li>Gestion médicaments</li>
-                        <li>Dates de péremption</li>
-                        <li>Ordonnances et ventes</li>
-                        <li>Stock automatisé</li>
-                        <li>Alerte péremption</li>
-                        <li>Facturation rapide</li>
-                        <li>Rapports CNPS</li>
-                        <li>Statistiques ventes</li>
-                    </ul>
-                    <span class="price-tag">À partir de 1 200 000 FCFA</span>
-                </div>
-
-                <!-- Solution 6: Applications Mobile Android -->
-                <div class="solution-card fade-in">
-                    <div class="solution-icon">📱</div>
-                    <h3>Applications Android</h3>
-                    <p>Apps mobiles natives adaptées à vos besoins</p>
-                    <ul class="features-list">
-                        <li>Interface moderne Material Design</li>
-                        <li>Mode hors-ligne</li>
-                        <li>Notifications push</li>
-                        <li>Appareil photo intégré</li>
-                        <li>Géolocalisation GPS</li>
-                        <li>Biométrie (empreinte)</li>
-                        <li>Performance optimisée</li>
-                        <li>Compatible Android 6.0+</li>
-                    </ul>
-                    <span class="price-tag">+400 000 à +600 000 FCFA</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Avantages -->
-    <section class="advantages">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: white;">Pourquoi Choisir Mes Solutions ?</h2>
-                <p style="color: rgba(255,255,255,0.9);">Des applications qui transforment vraiment votre gestion</p>
-            </div>
-
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="advantage-icon">⚡</div>
-                    <h3>Gain de Temps</h3>
-                    <p>Automatisation complète qui vous fait économiser jusqu'à 70% de temps sur vos tâches administratives quotidiennes</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-icon">✓</div>
-                    <h3>Zéro Erreur</h3>
-                    <p>Calculs automatiques précis, élimination des erreurs de saisie manuelle, données fiables à 100%</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-icon">📊</div>
-                    <h3>Rapports Instantanés</h3>
-                    <p>Tableaux de bord en temps réel, statistiques détaillées, exports Excel/PDF en un clic</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-icon">🔒</div>
-                    <h3>Sécurité Maximale</h3>
-                    <p>Données chiffrées, sauvegardes automatiques, accès sécurisés multi-niveaux pour protéger vos informations</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-icon">📱</div>
-                    <h3>Accessible Partout</h3>
-                    <p>Applications web et mobile, travaillez depuis n'importe où, sur PC, tablette ou smartphone</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-icon">💪</div>
-                    <h3>Support Dédié</h3>
-                    <p>Formation complète incluse, maintenance régulière, support technique réactif en français</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Technologies -->
-    <section id="technologies" class="technologies">
-        <div class="container">
-            <div class="section-title">
-                <h2>Technologies Maîtrisées</h2>
-                <p>Stack technique moderne pour des applications performantes</p>
-            </div>
-
-            <div class="tech-grid">
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">⚛️</div>
-                    <h4>React / Vue.js</h4>
-                    <p>Interfaces web modernes</p>
-                    <div class="tech-level">
-                        <div class="tech-level-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">🔧</div>
-                    <h4>PHP / Laravel</h4>
-                    <p>Backend robuste</p>
-                    <div class="tech-level">
-                        <div class="tech-level-fill" style="width: 88%"></div>
-                    </div>
-                </div>
-
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">📱</div>
-                    <h4>Flutter / React Native</h4>
-                    <p>Apps mobiles natives</p>
-                    <div class="tech-level">
-                        <div class="tech-level-fill" style="width: 82%"></div>
-                    </div>
-                </div>
-
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">🗄️</div>
-                    <h4>MySQL / PostgreSQL</h4>
-                    <p>Bases de données</p>
-                    <div class="tech-level">
-                        <div class="tech-level-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">⚡</div>
-                    <h4>Node.js</h4>
-                    <p>Backend JavaScript</p>
-                    <div class="tech-level">
-                        <div class="tech-level-fill" style="width: 80%"></div>
-                    </div>
-                </div>
-
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">🔗</div>
-                    <h4>API REST / GraphQL</h4>
-                    <p>Intégrations</p>
-                    <div class="tech-level">
-                        <div class="tech-level-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Processus -->
-    <section class="process">
-        <div class="container">
-            <div class="section-title">
-                <h2>Comment Je Travaille</h2>
-                <p>Un processus simple et transparent du début à la livraison</p>
-            </div>
-
-            <div class="process-steps">
-                <div class="step fade-in">
-                    <div class="step-number">1</div>
-                    <h3>Analyse</h3>
-                    <p>Comprendre vos besoins et définir les fonctionnalités essentielles</p>
-                </div>
-
-                <div class="step fade-in">
-                    <div class="step-number">2</div>
-                    <h3>Conception</h3>
-                    <p>Création des maquettes et validation du design avec vous</p>
-                </div>
-
-                <div class="step fade-in">
-                    <div class="step-number">3</div>
-                    <h3>Développement</h3>
-                    <p>Programmation de l'application avec tests réguliers</p>
-                </div>
-
-                <div class="step fade-in">
-                    <div class="step-number">4</div>
-                    <h3>Livraison</h3>
-                    <p>Installation, formation de votre équipe et mise en production</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Demandez Votre Devis Gratuit</h2>
-                <p>Parlons de votre projet et trouvons la meilleure solution ensemble</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-form">
-                    <h3>📧 Formulaire de Contact</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nom complet *</label>
-                            <input type="text" id="name" required placeholder="Votre nom">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" required placeholder="votre.email@exemple.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" required placeholder="+235 XX XX XX XX">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="solution">Solution qui vous intéresse *</label>
-                            <select id="solution" required>
-                                <option value="">-- Choisissez --</option>
-                                <option value="gestion-ecole">Gestion École</option>
-                                <option value="gestion-rh">Gestion RH</option>
-                                <option value="gestion-paie">Gestion Paie</option>
-                                <option value="gestion-stock">Gestion Stock</option>
-                                <option value="app-mobile">Application Mobile</option>
-                                <option value="autre">Autre / Personnalisé</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Décrivez votre projet *</label>
-                            <textarea id="message" required placeholder="Parlez-moi de vos besoins..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            Envoyer ma demande
-                        </button>
-                    </form>
-                </div>
-
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon">📧</div>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <a href="mailto:djdjerareoutardjnestor@gmail.com">djdjerareoutardjnestor@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">📱</div>
-                        <div class="info-content">
-                            <h4>WhatsApp</h4>
-                            <p>Contactez-moi sur WhatsApp</p>
-                            <a href="https://wa.me/235XXXXXXXX" target="_blank">Ouvrir WhatsApp</a>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">💻</div>
-                        <div class="info-content">
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/VOTRE_USERNAME" target="_blank">Voir mes projets open source</a>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">📍</div>
-                        <div class="info-content">
-                            <h4>Localisation</h4>
-                            <p>N'Djamena, Tchad</p>
-                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Disponible pour projets sur place et à distance</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">⏰</div>
-                        <div class="info-content">
-                            <h4>Réponse Rapide</h4>
-                            <p>Sous 24-48h maximum</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p><strong>Djerareoutar Nestor</strong> - Développeur Web Full-Stack & Mobile</p>
-            <p>Spécialiste Applications de Gestion | N'Djamena, Tchad</p>
-            <p>&copy; <span id="year"></span> Tous droits réservés</p>
-        </div>
-    </footer>
-
-    <!-- Modal Offre Spéciale -->
-    <div id="offerModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>🎉 Offre de Lancement 2026</h3>
-                <span class="close" onclick="closeModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 style="color: var(--primary); margin-bottom: 1rem;">Profitez de -40% sur votre premier projet !</h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 0.5rem 0;">✅ 40% de réduction sur le prix</li>
-                    <li style="padding: 0.5rem 0;">✅ 3 mois de maintenance GRATUITS</li>
-                    <li style="padding: 0.5rem 0;">✅ Formation de votre équipe INCLUSE</li>
-                    <li style="padding: 0.5rem 0;">✅ Livraison en 30-45 jours</li>
-                </ul>
-                <p style="margin-top: 1.5rem; color: var(--accent); font-weight: 600;">
-                    Valable pour les 5 premiers clients uniquement !
-                </p>
-                <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;" onclick="closeModal()">
-                    Je veux en profiter
-                </a>
-            </div>
-        </div>
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-grid container">
+    <div>
+      <div class="hero-badge"><span></span> Disponible pour nouveaux projets</div>
+      <h1>Solutions <em>sur mesure</em> pour votre entreprise</h1>
+      <p class="hero-sub">Je conçois des applications web & mobile qui automatisent votre gestion quotidienne — RH, Paie, École, Stock. Basé à N'Djamena, disponible partout.</p>
+      <div class="hero-ctas">
+        <a href="#solutions" class="btn-primary">→ Voir les solutions</a>
+        <a href="#contact" class="btn-outline">Demander un devis</a>
+      </div>
     </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Projets livrés</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Clients satisfaits</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Ans d'expérience</div>
+      </div>
+      <div class="stat-card" style="grid-column: span 3;">
+        <div class="stat-num" style="font-size:1.6rem;">Djerareoutar Nestor</div>
+        <div class="stat-label" style="font-size:.9rem;">Développeur Full-Stack & Mobile · N'Djamena, Tchad</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Animation au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+<!-- SOLUTIONS -->
+<section id="solutions">
+  <div class="container">
+    <div class="section-label">🎯 Mes Solutions</div>
+    <h2>Applications de gestion prêtes à déployer</h2>
+    <p class="section-intro">Des logiciels web et mobiles conçus pour automatiser et simplifier votre gestion d'entreprise au quotidien.</p>
+    <div class="solutions-grid">
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+      <div class="solution-card">
+        <div class="card-icon">🏫</div>
+        <div class="card-title">EduManager Pro</div>
+        <div class="card-desc">Solution complète pour la gestion scolaire moderne — élèves, notes, frais, bulletins.</div>
+        <ul class="card-features">
+          <li>Inscriptions & dossiers élèves</li>
+          <li>Bulletins automatiques</li>
+          <li>Gestion des frais scolaires</li>
+          <li>App mobile parents</li>
+          <li>Emplois du temps interactifs</li>
+        </ul>
+        <span class="card-price">À partir de 1 200 000 FCFA</span>
+      </div>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+      <div class="solution-card">
+        <div class="card-icon">👔</div>
+        <div class="card-title">StaffManager Plus</div>
+        <div class="card-desc">Gestion complète du personnel, présences, congés et performances.</div>
+        <ul class="card-features">
+          <li>Dossiers complets employés</li>
+          <li>Pointage via app mobile</li>
+          <li>Gestion des congés</li>
+          <li>Organigramme dynamique</li>
+          <li>Tableaux de bord RH</li>
+        </ul>
+        <span class="card-price">À partir de 1 500 000 FCFA</span>
+      </div>
 
-        // Navigation scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+      <div class="solution-card">
+        <div class="card-icon">💰</div>
+        <div class="card-title">PayrollMaster</div>
+        <div class="card-desc">Calcul automatique des salaires, primes, cotisations CNPS et bulletins de paie.</div>
+        <ul class="card-features">
+          <li>Calcul automatique salaires</li>
+          <li>Cotisations CNPS & IRPP</li>
+          <li>Génération bulletins PDF</li>
+          <li>Export bancaire</li>
+          <li>Envoi automatique email</li>
+        </ul>
+        <span class="card-price">À partir de 1 800 000 FCFA</span>
+      </div>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+      <div class="solution-card">
+        <div class="card-icon">📦</div>
+        <div class="card-title">StockPro Manager</div>
+        <div class="card-desc">Suivi et gestion de stock en temps réel avec alertes et rapports détaillés.</div>
+        <ul class="card-features">
+          <li>Suivi temps réel</li>
+          <li>Alertes stock minimum</li>
+          <li>QR Code / Code-barres</li>
+          <li>Gestion multi-dépôts</li>
+          <li>Rapports détaillés</li>
+        </ul>
+        <span class="card-price">À partir de 800 000 FCFA</span>
+      </div>
 
-        // Formulaire de contact
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+      <div class="solution-card">
+        <div class="card-icon">💊</div>
+        <div class="card-title">PharmaManager</div>
+        <div class="card-desc">Solution spécialisée pour pharmacies : médicaments, ordonnances et péremptions.</div>
+        <ul class="card-features">
+          <li>Gestion médicaments</li>
+          <li>Alertes péremption</li>
+          <li>Ordonnances & ventes</li>
+          <li>Rapports CNPS</li>
+          <li>Statistiques ventes</li>
+        </ul>
+        <span class="card-price">À partir de 1 200 000 FCFA</span>
+      </div>
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                solution: document.getElementById('solution').value,
-                message: document.getElementById('message').value
-            };
+      <div class="solution-card">
+        <div class="card-icon">📱</div>
+        <div class="card-title">Applications Android</div>
+        <div class="card-desc">Apps mobiles natives Material Design, optimisées et compatibles Android 6.0+.</div>
+        <ul class="card-features">
+          <li>Mode hors-ligne</li>
+          <li>Notifications push</li>
+          <li>Biométrie (empreinte)</li>
+          <li>Géolocalisation GPS</li>
+          <li>Performance optimisée</li>
+        </ul>
+        <span class="card-price">400 000 à 600 000+ FCFA</span>
+      </div>
 
-            const emailBody = `
-Nouvelle demande de devis depuis votre portfolio
+    </div>
+  </div>
+</section>
 
-Nom: ${formData.name}
-Email: ${formData.email}
-Téléphone: ${formData.phone}
-Solution: ${formData.solution}
+<!-- POURQUOI MOI -->
+<section id="pourquoi">
+  <div class="container">
+    <div class="section-label">💡 Pourquoi me choisir</div>
+    <h2>Ce qui fait la différence</h2>
+    <p class="section-intro">Des applications conçues pour transformer réellement votre façon de travailler.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Gain de temps</div><div class="why-desc">Automatisation complète : économisez jusqu'à 70% de temps sur les tâches administratives.</div></div>
+      <div class="why-card"><div class="why-icon">✅</div><div class="why-title">Zéro erreur</div><div class="why-desc">Calculs automatiques précis, élimination des erreurs de saisie manuelle.</div></div>
+      <div class="why-card"><div class="why-icon">📊</div><div class="why-title">Rapports instantanés</div><div class="why-desc">Tableaux de bord en temps réel, exports Excel/PDF en un clic.</div></div>
+      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">Sécurité maximale</div><div class="why-desc">Données chiffrées, sauvegardes automatiques, accès multi-niveaux.</div></div>
+      <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Accessible partout</div><div class="why-desc">Web et mobile : travaillez depuis PC, tablette ou smartphone.</div></div>
+      <div class="why-card"><div class="why-icon">💪</div><div class="why-title">Support dédié</div><div class="why-desc">Formation complète, maintenance régulière et support en français.</div></div>
+    </div>
+  </div>
+</section>
 
-Message:
-${formData.message}
+<!-- TECHNOLOGIES -->
+<section id="technologies">
+  <div class="container">
+    <div class="section-label">🛠️ Stack technique</div>
+    <h2>Technologies maîtrisées</h2>
+    <p class="section-intro">Des outils modernes et éprouvés pour des applications rapides, fiables et maintenables.</p>
+    <div class="tech-grid">
+      <div class="tech-pill"><span>⚛️</span>React / Vue.js</div>
+      <div class="tech-pill"><span>🔧</span>PHP / Laravel</div>
+      <div class="tech-pill"><span>📱</span>Flutter</div>
+      <div class="tech-pill"><span>🗄️</span>MySQL / PostgreSQL</div>
+      <div class="tech-pill"><span>⚡</span>Node.js</div>
+      <div class="tech-pill"><span>🔗</span>API REST</div>
+      <div class="tech-pill"><span>🐳</span>Docker</div>
+      <div class="tech-pill"><span>☁️</span>Cloud Deploy</div>
+    </div>
+  </div>
+</section>
 
----
-Envoyé depuis le portfolio - ${new Date().toLocaleString('fr-FR')}
-            `.trim();
+<!-- PROCESSUS -->
+<section id="processus">
+  <div class="container">
+    <div class="section-label">📋 Mon processus</div>
+    <h2>De l'idée à la livraison</h2>
+    <p class="section-intro">Un déroulement simple, transparent et collaboratif du début à la mise en production.</p>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">1</div><h3>Analyse</h3><p>Comprendre vos besoins et définir les fonctionnalités essentielles.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Conception</h3><p>Maquettes et validation du design avec vous avant tout développement.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Développement</h3><p>Programmation avec tests réguliers et points d'avancement.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Livraison</h3><p>Installation, formation de votre équipe et mise en production.</p></div>
+    </div>
+  </div>
+</section>
 
-            const mailtoLink = `mailto:djdjerareoutardjnestor@gmail.com?subject=${encodeURIComponent('Demande de devis - ' + formData.solution)}&body=${encodeURIComponent(emailBody)}`;
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">📬 Contact</div>
+        <h2>Parlons de votre projet</h2>
+        <p>Vous avez un besoin en gestion d'entreprise ? Décrivez-le moi et je vous propose une solution sur mesure avec un devis gratuit sous 24-48h.</p>
+        <div class="contact-links">
+          <a href="mailto:djdjerareoutardjnestor@gmail.com" class="contact-link">
+            <span class="contact-link-icon">📧</span>
+            <div class="contact-link-text">
+              <strong>Email</strong>
+              <span>djdjerareoutardjnestor@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://wa.me/235XXXXXXXX" class="contact-link">
+            <span class="contact-link-icon">💬</span>
+            <div class="contact-link-text">
+              <strong>WhatsApp</strong>
+              <span>Réponse rapide garantie</span>
+            </div>
+          </a>
+          <a href="https://github.com/lobenestor" class="contact-link" target="_blank">
+            <span class="contact-link-icon">💻</span>
+            <div class="contact-link-text">
+              <strong>GitHub</strong>
+              <span>github.com/lobenestor</span>
+            </div>
+          </a>
+          <div class="contact-link" style="cursor:default;">
+            <span class="contact-link-icon">📍</span>
+            <div class="contact-link-text">
+              <strong>Localisation</strong>
+              <span>N'Djamena, Tchad · Projets à distance acceptés</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            window.location.href = mailtoLink;
-            
-            alert('✅ Merci ! Votre message a été préparé. Il va s\'ouvrir dans votre client email.');
-            
-            this.reset();
-        });
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div>
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" placeholder="Votre nom"/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="vous@example.com"/>
+          </div>
+        </div>
+        <div>
+          <label for="tel">Téléphone</label>
+          <input type="tel" id="tel" placeholder="+235 ..."/>
+        </div>
+        <div>
+          <label for="solution">Solution souhaitée</label>
+          <select id="solution">
+            <option value="">-- Choisissez --</option>
+            <option>Gestion École</option>
+            <option>Gestion RH</option>
+            <option>Gestion Paie</option>
+            <option>Gestion Stock</option>
+            <option>Application Mobile</option>
+            <option>Autre / Personnalisé</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Décrivez votre projet</label>
+          <textarea id="message" placeholder="Expliquez votre besoin..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;">
+          Envoyer ma demande →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
 
-        // Modal offre spéciale - s'affiche après 10 secondes
-        setTimeout(() => {
-            document.getElementById('offerModal').style.display = 'block';
-        }, 10000);
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:var(--text);">Djerareoutar Nestor</strong> — Développeur Full-Stack & Mobile · N'Djamena, Tchad</p>
+  <p style="margin-top:.5rem;">© 2026 Tous droits réservés · <a href="https://github.com/lobenestor">GitHub</a></p>
+</footer>
 
-        function closeModal() {
-            document.getElementById('offerModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('offerModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // Année actuelle
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
