@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // ─── ENVOI DU FORMULAIRE DE CONTACT (Web3Forms) ───
+  // ─── ENVOI DU FORMULAIRE DE CONTACT (Formspree) ───
   const contactForm = document.getElementById('contactForm');
   const submitBtn = document.getElementById('formSubmitBtn');
   const statusBox = document.getElementById('formStatus');
@@ -45,14 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       try {
         const formData = new FormData(contactForm);
-        const response = await fetch('https://api.web3forms.com/submit', {
+        const response = await fetch(contactForm.action, {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: formData
         });
-        const result = await response.json();
 
-        if (response.status === 200 && result.success) {
+        if (response.ok) {
           statusBox.className = 'form-status success';
           statusBox.textContent = '✅ Votre demande a bien été envoyée ! Je vous réponds sous 24-48h.';
           contactForm.reset();
