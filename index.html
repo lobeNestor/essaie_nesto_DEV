@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Djerareoutar Nestor - Développeur Web Full-Stack & Mobile à N'Djamena, Tchad."/>
+  <meta name="description" content="Djerareoutar Nestor - Développeur Web Full-Stack & Mobile à N'Djamena, Tchad. Disponible pour un poste."/>
   <title>Nestor — Développeur Full-Stack & Mobile</title>
 
   <!-- Google Fonts -->
@@ -14,22 +14,19 @@
 </head>
 <body>
 
-<!-- BARRE PROMO -->
-<div class="promo-bar">
-  🎉 <strong>Offre Lancement 2026 :</strong> -40% sur votre premier projet + 3 mois maintenance GRATUITS — 5 places restantes !
-</div>
-
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-logo">DN</div>
   <ul class="nav-links">
     <li><a href="#accueil">Accueil</a></li>
-    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#maintenance">Maintenance</a></li>
     <li><a href="#technologies">Stack</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#contact" class="btn-primary nav-cta-mobile" style="padding:.6rem 1.4rem;font-size:.85rem;">Devis gratuit</a></li>
+    <li><a href="#contact" class="btn-primary nav-cta-mobile" style="padding:.6rem 1.4rem;font-size:.85rem;">Me contacter</a></li>
   </ul>
-  <a href="#contact" class="btn-primary nav-cta-desktop" style="padding:.6rem 1.4rem;font-size:.85rem;">Devis gratuit</a>
+  <a href="#contact" class="btn-primary nav-cta-desktop" style="padding:.6rem 1.4rem;font-size:.85rem;">Me contacter</a>
   <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
     <span></span>
   </button>
@@ -40,27 +37,15 @@
   <div class="hero-bg"></div>
   <div class="hero-grid container">
     <div>
-      <div class="hero-badge"><span></span> Disponible pour nouveaux projets</div>
-      <h1>Solutions <em>sur mesure</em> pour votre entreprise</h1>
-      <p class="hero-sub">Je conçois des applications web & mobile qui automatisent votre gestion quotidienne — RH, Paie, École, Stock. Basé à N'Djamena, disponible partout.</p>
+      <div class="hero-badge"><span></span> Disponible pour un poste de développeur</div>
+      <h1>Développeur <em>Full-Stack & Mobile</em></h1>
+      <p class="hero-sub">Je développe des applications web et mobile de gestion (RH, paie, école, stock). Basé à N'Djamena, ouvert au travail à distance.</p>
       <div class="hero-ctas">
-        <a href="#solutions" class="btn-primary">→ Voir les solutions</a>
-        <a href="#contact" class="btn-outline">Demander un devis</a>
+        <a href="#projets" class="btn-primary">→ Voir mes projets</a>
+        <a href="#contact" class="btn-outline">Me contacter</a>
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-card">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Projets livrés</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">Clients satisfaits</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Ans d'expérience</div>
-      </div>
       <div class="stat-card" style="grid-column: span 3;">
         <div class="stat-num" style="font-size:1.6rem;">Djerareoutar Nestor</div>
         <div class="stat-label" style="font-size:.9rem;">Développeur Full-Stack & Mobile · N'Djamena, Tchad</div>
@@ -69,18 +54,32 @@
   </div>
 </section>
 
-<!-- SOLUTIONS -->
-<section id="solutions">
+<!-- A PROPOS -->
+<section id="apropos">
   <div class="container">
-    <div class="section-label">🎯 Mes Solutions</div>
-    <h2>Applications de gestion prêtes à déployer</h2>
-    <p class="section-intro">Des logiciels web et mobiles conçus pour automatiser et simplifier votre gestion d'entreprise au quotidien.</p>
+    <div class="section-label">👋 À propos</div>
+    <h2>Qui suis-je ?</h2>
+    <p class="section-intro">
+      Je suis développeur web et mobile basé à N'Djamena. Je construis des applications de gestion pour simplifier le travail administratif des entreprises, écoles et pharmacies. Je cherche aujourd'hui un poste où je pourrai progresser, travailler en équipe et apporter mes compétences sur de vrais projets.
+    </p>
+    <!-- Ajoute ici ta formation, par exemple :
+    <p class="section-intro">Formation : [Ton diplôme / ton école / ton année]</p>
+    -->
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="solutions">
+  <div class="container" id="projets">
+    <div class="section-label">🎯 Mes Projets</div>
+    <h2>Applications de gestion que je développe</h2>
+    <p class="section-intro">Quelques applications web et mobiles que j'ai conçues pour automatiser et simplifier la gestion d'organisations.</p>
     <div class="solutions-grid">
 
       <div class="solution-card">
         <div class="card-icon">🏫</div>
         <div class="card-title">EduManager Pro</div>
-        <div class="card-desc">Solution complète pour la gestion scolaire moderne — élèves, notes, frais, bulletins.</div>
+        <div class="card-desc">Application de gestion scolaire : élèves, notes, frais, bulletins.</div>
         <ul class="card-features">
           <li>Inscriptions & dossiers élèves</li>
           <li>Bulletins automatiques</li>
@@ -88,69 +87,64 @@
           <li>App mobile parents</li>
           <li>Emplois du temps interactifs</li>
         </ul>
-        <span class="card-price">À partir de 1 200 000 FCFA</span>
       </div>
 
       <div class="solution-card">
         <div class="card-icon">👔</div>
         <div class="card-title">StaffManager Plus</div>
-        <div class="card-desc">Gestion complète du personnel, présences, congés et performances.</div>
+        <div class="card-desc">Gestion du personnel, présences, congés et performances.</div>
         <ul class="card-features">
-          <li>Dossiers complets employés</li>
+          <li>Dossiers employés</li>
           <li>Pointage via app mobile</li>
           <li>Gestion des congés</li>
           <li>Organigramme dynamique</li>
           <li>Tableaux de bord RH</li>
         </ul>
-        <span class="card-price">À partir de 1 500 000 FCFA</span>
       </div>
 
       <div class="solution-card">
         <div class="card-icon">💰</div>
         <div class="card-title">PayrollMaster</div>
-        <div class="card-desc">Calcul automatique des salaires, primes, cotisations CNPS et bulletins de paie.</div>
+        <div class="card-desc">Calcul des salaires, primes, cotisations CNPS et bulletins de paie.</div>
         <ul class="card-features">
-          <li>Calcul automatique salaires</li>
+          <li>Calcul automatique des salaires</li>
           <li>Cotisations CNPS & IRPP</li>
-          <li>Génération bulletins PDF</li>
+          <li>Génération de bulletins PDF</li>
           <li>Export bancaire</li>
-          <li>Envoi automatique email</li>
+          <li>Envoi automatique par email</li>
         </ul>
-        <span class="card-price">À partir de 1 800 000 FCFA</span>
       </div>
 
       <div class="solution-card">
         <div class="card-icon">📦</div>
         <div class="card-title">StockPro Manager</div>
-        <div class="card-desc">Suivi et gestion de stock en temps réel avec alertes et rapports détaillés.</div>
+        <div class="card-desc">Suivi et gestion de stock avec alertes et rapports.</div>
         <ul class="card-features">
-          <li>Suivi temps réel</li>
+          <li>Suivi du stock</li>
           <li>Alertes stock minimum</li>
           <li>QR Code / Code-barres</li>
           <li>Gestion multi-dépôts</li>
           <li>Rapports détaillés</li>
         </ul>
-        <span class="card-price">À partir de 800 000 FCFA</span>
       </div>
 
       <div class="solution-card">
         <div class="card-icon">💊</div>
         <div class="card-title">PharmaManager</div>
-        <div class="card-desc">Solution spécialisée pour pharmacies : médicaments, ordonnances et péremptions.</div>
+        <div class="card-desc">Application pour pharmacies : médicaments, ordonnances et péremptions.</div>
         <ul class="card-features">
-          <li>Gestion médicaments</li>
+          <li>Gestion des médicaments</li>
           <li>Alertes péremption</li>
           <li>Ordonnances & ventes</li>
-          <li>Rapports CNPS</li>
-          <li>Statistiques ventes</li>
+          <li>Rapports</li>
+          <li>Statistiques de ventes</li>
         </ul>
-        <span class="card-price">À partir de 1 200 000 FCFA</span>
       </div>
 
       <div class="solution-card">
         <div class="card-icon">📱</div>
         <div class="card-title">Applications Android</div>
-        <div class="card-desc">Apps mobiles natives Material Design, optimisées et compatibles Android 6.0+.</div>
+        <div class="card-desc">Applications mobiles Material Design compatibles Android 6.0+.</div>
         <ul class="card-features">
           <li>Mode hors-ligne</li>
           <li>Notifications push</li>
@@ -158,26 +152,45 @@
           <li>Géolocalisation GPS</li>
           <li>Performance optimisée</li>
         </ul>
-        <span class="card-price">400 000 à 600 000+ FCFA</span>
       </div>
 
     </div>
+    <p style="margin-top:2rem;">
+      <a href="https://github.com/lobenestor" target="_blank" rel="noopener" class="btn-outline">Voir le code sur GitHub →</a>
+    </p>
   </div>
 </section>
 
 <!-- POURQUOI MOI -->
 <section id="pourquoi">
   <div class="container">
-    <div class="section-label">💡 Pourquoi me choisir</div>
-    <h2>Ce qui fait la différence</h2>
-    <p class="section-intro">Des applications conçues pour transformer réellement votre façon de travailler.</p>
+    <div class="section-label">💡 Ce que j'apporte</div>
+    <h2>Mes points forts</h2>
+    <p class="section-intro">Ce que je peux apporter à une équipe.</p>
     <div class="why-grid">
-      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Gain de temps</div><div class="why-desc">Automatisation complète : économisez jusqu'à 70% de temps sur les tâches administratives.</div></div>
-      <div class="why-card"><div class="why-icon">✅</div><div class="why-title">Zéro erreur</div><div class="why-desc">Calculs automatiques précis, élimination des erreurs de saisie manuelle.</div></div>
-      <div class="why-card"><div class="why-icon">📊</div><div class="why-title">Rapports instantanés</div><div class="why-desc">Tableaux de bord en temps réel, exports Excel/PDF en un clic.</div></div>
-      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">Sécurité maximale</div><div class="why-desc">Données chiffrées, sauvegardes automatiques, accès multi-niveaux.</div></div>
-      <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Accessible partout</div><div class="why-desc">Web et mobile : travaillez depuis PC, tablette ou smartphone.</div></div>
-      <div class="why-card"><div class="why-icon">💪</div><div class="why-title">Support dédié</div><div class="why-desc">Formation complète, maintenance régulière et support en français.</div></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Automatisation</div><div class="why-desc">J'automatise les tâches administratives répétitives pour faire gagner du temps.</div></div>
+      <div class="why-card"><div class="why-icon">✅</div><div class="why-title">Rigueur</div><div class="why-desc">Calculs automatiques et validations pour limiter les erreurs de saisie.</div></div>
+      <div class="why-card"><div class="why-icon">📊</div><div class="why-title">Rapports</div><div class="why-desc">Tableaux de bord et exports Excel/PDF.</div></div>
+      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">Sécurité</div><div class="why-desc">Attention portée à la protection des données et à la gestion des accès.</div></div>
+      <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Web & Mobile</div><div class="why-desc">Je travaille sur le web et sur mobile, du back-end à l'interface.</div></div>
+      <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Esprit d'équipe</div><div class="why-desc">Motivé pour apprendre, communiquer clairement et progresser avec l'équipe.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE -->
+<section id="maintenance">
+  <div class="container">
+    <div class="section-label">🔧 Maintenance</div>
+    <h2>Maintenance logicielle et matérielle</h2>
+    <p class="section-intro">Je ne m'arrête pas à la livraison : j'assure le suivi des applications en production, ainsi que la maintenance et le choix du matériel informatique.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🐞</div><div class="why-title">Correction de bugs</div><div class="why-desc">Analyse et correction des anomalies signalées par les utilisateurs.</div></div>
+      <div class="why-card"><div class="why-icon">🚀</div><div class="why-title">Évolutions</div><div class="why-desc">Ajout de nouvelles fonctionnalités selon les besoins.</div></div>
+      <div class="why-card"><div class="why-icon">💾</div><div class="why-title">Sauvegardes</div><div class="why-desc">Mise en place et vérification des sauvegardes de données.</div></div>
+      <div class="why-card"><div class="why-icon">🔄</div><div class="why-title">Mises à jour</div><div class="why-desc">Mise à jour des dépendances et amélioration de la sécurité.</div></div>
+      <div class="why-card"><div class="why-icon">🖥️</div><div class="why-title">Maintenance matérielle</div><div class="why-desc">Diagnostic et dépannage des ordinateurs, installation et configuration des systèmes et logiciels.</div></div>
+      <div class="why-card"><div class="why-icon">🛒</div><div class="why-title">Conseil en équipement</div><div class="why-desc">Aide au choix de machines performantes adaptées aux besoins et au budget de l'entreprise.</div></div>
     </div>
   </div>
 </section>
@@ -186,8 +199,8 @@
 <section id="technologies">
   <div class="container">
     <div class="section-label">🛠️ Stack technique</div>
-    <h2>Technologies maîtrisées</h2>
-    <p class="section-intro">Des outils modernes et éprouvés pour des applications rapides, fiables et maintenables.</p>
+    <h2>Technologies utilisées</h2>
+    <p class="section-intro">Les outils avec lesquels je travaille.</p>
     <div class="tech-grid">
       <div class="tech-pill"><span>⚛️</span>React / Vue.js</div>
       <div class="tech-pill"><span>🔧</span>PHP / Laravel</div>
@@ -196,7 +209,7 @@
       <div class="tech-pill"><span>⚡</span>Node.js</div>
       <div class="tech-pill"><span>🔗</span>API REST</div>
       <div class="tech-pill"><span>🐳</span>Docker</div>
-      <div class="tech-pill"><span>☁️</span>Cloud Deploy</div>
+      <div class="tech-pill"><span>☁️</span>Déploiement Cloud</div>
     </div>
   </div>
 </section>
@@ -204,14 +217,14 @@
 <!-- PROCESSUS -->
 <section id="processus">
   <div class="container">
-    <div class="section-label">📋 Mon processus</div>
-    <h2>De l'idée à la livraison</h2>
-    <p class="section-intro">Un déroulement simple, transparent et collaboratif du début à la mise en production.</p>
+    <div class="section-label">📋 Ma méthode</div>
+    <h2>Ma façon de travailler</h2>
+    <p class="section-intro">Une démarche simple, du besoin à la mise en production.</p>
     <div class="process-steps">
-      <div class="step"><div class="step-num">1</div><h3>Analyse</h3><p>Comprendre vos besoins et définir les fonctionnalités essentielles.</p></div>
-      <div class="step"><div class="step-num">2</div><h3>Conception</h3><p>Maquettes et validation du design avec vous avant tout développement.</p></div>
+      <div class="step"><div class="step-num">1</div><h3>Analyse</h3><p>Comprendre le besoin et définir les fonctionnalités essentielles.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Conception</h3><p>Maquettes et validation du design avant le développement.</p></div>
       <div class="step"><div class="step-num">3</div><h3>Développement</h3><p>Programmation avec tests réguliers et points d'avancement.</p></div>
-      <div class="step"><div class="step-num">4</div><h3>Livraison</h3><p>Installation, formation de votre équipe et mise en production.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Livraison</h3><p>Installation, documentation et mise en production.</p></div>
     </div>
   </div>
 </section>
@@ -222,8 +235,8 @@
     <div class="contact-grid">
       <div class="contact-info">
         <div class="section-label">📬 Contact</div>
-        <h2>Parlons de votre projet</h2>
-        <p>Vous avez un besoin en gestion d'entreprise ? Décrivez-le moi et je vous propose une solution sur mesure avec un devis gratuit sous 24-48h.</p>
+        <h2>Travaillons ensemble</h2>
+        <p>Vous recrutez un développeur web ou mobile ? Écrivez-moi, je vous répondrai rapidement.</p>
         <div class="contact-links">
           <a href="mailto:djdjerareoutardjnestor@gmail.com" class="contact-link">
             <span class="contact-link-icon">📧</span>
@@ -236,10 +249,10 @@
             <span class="contact-link-icon">💬</span>
             <div class="contact-link-text">
               <strong>WhatsApp</strong>
-              <span>Réponse rapide garantie</span>
+              <span>Me écrire sur WhatsApp</span>
             </div>
           </a>
-          <a href="https://github.com/lobenestor" class="contact-link" target="_blank">
+          <a href="https://github.com/lobenestor" class="contact-link" target="_blank" rel="noopener">
             <span class="contact-link-icon">💻</span>
             <div class="contact-link-text">
               <strong>GitHub</strong>
@@ -250,14 +263,14 @@
             <span class="contact-link-icon">📍</span>
             <div class="contact-link-text">
               <strong>Localisation</strong>
-              <span>N'Djamena, Tchad · Projets à distance acceptés</span>
+              <span>N'Djamena, Tchad · Ouvert au travail à distance</span>
             </div>
           </div>
         </div>
       </div>
 
       <form id="contactForm" action="https://formspree.io/f/xnjkdldv" method="POST">
-        <input type="hidden" name="_subject" value="Nouvelle demande de devis - Portfolio Nestor" />
+        <input type="hidden" name="_subject" value="Contact recruteur - Portfolio Nestor" />
         <div class="form-row">
           <div>
             <label for="nom">Nom complet</label>
@@ -273,23 +286,11 @@
           <input type="tel" id="tel" name="phone" placeholder="+235 ..."/>
         </div>
         <div>
-          <label for="solution">Solution souhaitée</label>
-          <select id="solution" name="solution">
-            <option value="">-- Choisissez --</option>
-            <option>Gestion École</option>
-            <option>Gestion RH</option>
-            <option>Gestion Paie</option>
-            <option>Gestion Stock</option>
-            <option>Application Mobile</option>
-            <option>Autre / Personnalisé</option>
-          </select>
-        </div>
-        <div>
-          <label for="message">Décrivez votre projet</label>
-          <textarea id="message" name="message" placeholder="Expliquez votre besoin..." required></textarea>
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" placeholder="Écrivez votre message..." required></textarea>
         </div>
         <button type="submit" id="formSubmitBtn" class="btn-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;">
-          Envoyer ma demande →
+          Envoyer →
         </button>
         <div id="formStatus" class="form-status"></div>
       </form>
